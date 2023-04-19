@@ -3,43 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-
 public class readText : MonoBehaviour
 {
-    public Text textElement1;
-    public Text textElement2;
-    public Text textElement3;
-    public Text textElement4;
-    public Text textElement5;
-    public Text textElement6;
-    public Text textElement7;
-    public Text textElement8;
-    public Text textElement9;
-    public Text textElement10;
-    public Text textElement11;
-    public Text textElement12;
-    public Text textElement13;
-    public Text textElement14;
-    string path = "Assets/Data/memoria.txt";    
-    
-
-    void CountPair()
-    {
-        
-        
-    }
+    public Text[] textElement;
+    public string level;
 
     // Start is called before the first frame update
     void Start()
     {
-        string[] text = File.ReadAllLines(path);
-        /* Debug.Log(text.Length); */
+        List<PreguntaYrespuesta> preguntasNivel1 = Levels(level);
+        for (int cont = 0; cont < textElement.Length; cont+=2){
+            textElement[cont].text = preguntasNivel1[(1+cont)/2].pregunta;
+            textElement[cont+1].text = preguntasNivel1[(1+cont)/2].respuesta;          
+        }
+        
+        /* Debug.Log(preguntasTotales); */
+        bool[,] cardFill = new bool[7,2];
+        
+        /* Random rd = new Random(); */
 
-        textElement1.text = text[1].Split('|')[2];
-        textElement2.text = text[1].Split('|')[3];
-
-        textElement3.text = text[2].Split('|')[2];
-        textElement4.text = text[2].Split('|')[3];
+        Debug.Log(textElement.Length);
     }
 
     // Update is called once per frame
@@ -47,4 +30,50 @@ public class readText : MonoBehaviour
     {
         
     }
+
+    List<PreguntaYrespuesta> Levels(string level)
+    {       
+        PreguntaYrespuesta[] datos = cargarDatos();
+        List<PreguntaYrespuesta> levelPyR = new List<PreguntaYrespuesta>();
+        foreach (PreguntaYrespuesta item in datos){            
+            if(item.dificultad.Equals(level)){
+                levelPyR.Add(item);
+            }
+        }
+        return levelPyR;
+    }
+
+    PreguntaYrespuesta[] cargarDatos(){
+        string path = "Assets/Data/memoria.txt"; 
+        string[] text = File.ReadAllLines(path);
+        int preguntasTotales = text.Length;
+        PreguntaYrespuesta[] datos = new PreguntaYrespuesta[preguntasTotales];
+        for (int cont = 0; cont < preguntasTotales; cont++){
+            string dificultad = text[cont].Split('|')[0];
+            string id = text[cont].Split('|')[1];
+            string pregunta = text[cont].Split('|')[2];
+            string respuesta = text[cont].Split('|')[3];
+            PreguntaYrespuesta PyR = new PreguntaYrespuesta(dificultad,id,pregunta,respuesta);
+            datos[cont] = PyR; 
+        }
+        return datos;
+    }
+}
+
+class PreguntaYrespuesta
+{
+    public string dificultad {get;}
+    public string id {get;}
+    public string pregunta {get;}
+    public string respuesta {get;}
+
+    public PreguntaYrespuesta(){}
+
+    public PreguntaYrespuesta(string dificultad, string id, string pregunta, string respuesta)
+    {
+        this.dificultad = dificultad;
+        this.id = id;
+        this.pregunta = pregunta;
+        this.respuesta = respuesta;
+    }    
 }
