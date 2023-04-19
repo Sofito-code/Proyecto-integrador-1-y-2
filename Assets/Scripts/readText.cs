@@ -6,23 +6,19 @@ using System.IO;
 public class readText : MonoBehaviour
 {
     public Text[] textElement;
+    public Image[] imageElement;
     public string level;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         List<PreguntaYrespuesta> preguntasNivel1 = Levels(level);
         for (int cont = 0; cont < textElement.Length; cont+=2){
             textElement[cont].text = preguntasNivel1[(1+cont)/2].pregunta;
-            textElement[cont+1].text = preguntasNivel1[(1+cont)/2].respuesta;          
+            textElement[cont+1].text = preguntasNivel1[(1+cont)/2].respuesta;
+            /* imageElement[cont]    */      
         }
-        
-        /* Debug.Log(preguntasTotales); */
-        bool[,] cardFill = new bool[7,2];
-        
-        /* Random rd = new Random(); */
-
-        Debug.Log(textElement.Length);
     }
 
     // Update is called once per frame
