@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using TMPro;
 
 public class CardController : MonoBehaviour
 {
@@ -16,9 +17,15 @@ public class CardController : MonoBehaviour
     public string level;
     List<CardInfo> questions;
     List<GameObject> cards = new List<GameObject>();
-    
+    public int remainingClicks = 20;
+    public int successesCards = 0;
+    public TMP_Text attempts;
+    public TMP_Text successes;
+    public Card displayedCard;
 
-    // Start is called before the first frame update
+    public bool isAvailable = true;
+
+
     void Start()
     {
         questions = Levels(level);
@@ -83,6 +90,35 @@ public class CardController : MonoBehaviour
             cards[i].GetComponent<Card>().originalPos = cards[i].transform.position;
             cards[rd].GetComponent<Card>().originalPos = cards[rd].transform.position;
         }
+    }
+
+    public void onCardClick(Card _card){
+        if (displayedCard == null)
+        {
+            displayedCard = _card;
+        }else{
+            if(displayedCard != null){
+                if(CompareCards(_card,displayedCard)){
+                    successesCards++;
+                }
+                else{
+                    _card.HideCard();
+                    displayedCard.HideCard();
+                }
+                displayedCard = null;
+            }
+        }
+        remainingClicks--;
+        UploadUI();
+    }
+
+    public bool CompareCards(Card _card1, Card _card2){
+        return _card1.idCard == _card2.idCard;
+    }
+
+    public void UploadUI(){
+        attempts.text = "INTENTOS RESTANTES: " + remainingClicks;
+        successes.text = "ACIERTOS: " + successesCards;
     }
 
     List<CardInfo> Levels(string level)
