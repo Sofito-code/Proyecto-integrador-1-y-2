@@ -39,12 +39,15 @@ public class CardController : MonoBehaviour
                     Quaternion.Euler(new Vector3(0, 0, 0))
                 );
                 cards.Add(cardTemp);
+                
+                cardTemp.GetComponent<Card>().originalPos = new Vector3(x, y, 0);
                 cardTemp.transform.SetParent(cardsParent);
                 y -= 400;
             }
             x += 250;
         }
         CardsInfo();
+        RandomPositions();
     }
 
     void CardsInfo()
@@ -66,6 +69,19 @@ public class CardController : MonoBehaviour
                 cards[i].GetComponent<Card>().SetText(question.answer);
                 isQuestion = true;
             }
+        }
+    }
+
+    void RandomPositions(){
+        int rd;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            rd = UnityEngine.Random.Range(i, cards.Count);
+            cards[i].transform.position =  cards[rd].transform.position;
+            cards[rd].transform.position = cards[i].GetComponent<Card>().originalPos;
+
+            cards[i].GetComponent<Card>().originalPos = cards[i].transform.position;
+            cards[rd].GetComponent<Card>().originalPos = cards[rd].transform.position;
         }
     }
 
