@@ -11,7 +11,11 @@ public class MenuControl : MonoBehaviour
     }
 
     public void buttonCredit(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
+    }
+
+    public void buttonInstructions(){
+        SceneManager.LoadScene(3);
     }
 
      public void buttonExit(){
