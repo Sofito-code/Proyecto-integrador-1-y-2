@@ -15,16 +15,32 @@ public class CardController : MonoBehaviour
     public Transform cardsParent;
     public Sprite[] sprites;
     public string level;
-    List<CardInfo> questions;
-    List<GameObject> cards = new List<GameObject>();
-    public int remainingClicks = 20;
-    public int successesCards = 0;
     public TMP_Text attempts;
     public TMP_Text successes;
-    public Card displayedCard;
+    public TMP_Text time;
+    public TMP_Text score;
+    public TMP_Text scoreGameOver;
+    public TMP_Text bonusGameOver;
+    public TMP_Text totalGameOver;
+    public GameObject gameOver;
+    public GameObject gameInfoSup;
+    public GameObject gameInfoInf;
+    public GameObject cardsParentObject;
+    public GameObject instructions;
+    public float limit = 900f;    
 
-    public bool isAvailable = true;
+    private List<CardInfo> questions;
+    private List<GameObject> cards = new List<GameObject>();
+    private int remainingClicks = 20;
+    private int successesCards = 0;
+    private int scorePlayer = 0;
+    private int bonusScorePlayer = 0;
 
+    private Card displayedCard;
+    public bool isAvailable { set; get; } = true;
+    private bool playing = false;
+    private float temp = 0f;
+    private string textTime = "00:00";    
 
     void Start()
     {
@@ -32,8 +48,48 @@ public class CardController : MonoBehaviour
         Create();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        if(playing){
+            if(temp>= limit || remainingClicks == 0 || successesCards == 7){
+                GameOver();
+            }
+            UploadTimeUI();           
+        }
+    }
+
+    public void StartGame()
+    {
+        instructions.SetActive(false);
+        gameInfoInf.SetActive(true);
+        gameInfoSup.SetActive(true);
+        cardsParentObject.SetActive(true);
+        playing = true;
+    }
+
+    public void UploadTimeUI(){
+        temp += Time.deltaTime;
+        int hor, min, seg; 
+        hor = (int)(temp / 3600);
+        min = (int)((temp - hor * 3600) / 60);
+        seg = (int)(temp - (hor * 3600 + min * 60));
+        
+        if(min < 10 && seg < 10){
+            textTime = "0" + min + ":0" + seg;
+        }else if(min < 10 && seg > 9){
+            textTime = "0" + min + ":" + seg;
+        }else if (min > 9 && seg < 10){
+            textTime = min + ":0" + seg;
+        }else{
+            textTime = min + ":" + seg;
+        }
+        time.text = "TIEMPO: " + textTime;
+    }
+
     public void Create()
     {
+
         int x = 210;
         for (int i = 0; i < cols; i++)
         {
@@ -100,6 +156,7 @@ public class CardController : MonoBehaviour
             if(displayedCard != null){
                 if(CompareCards(_card,displayedCard)){
                     successesCards++;
+                    scorePlayer += 50;
                 }
                 else{
                     _card.HideCard();
@@ -119,6 +176,24 @@ public class CardController : MonoBehaviour
     public void UploadUI(){
         attempts.text = "INTENTOS RESTANTES: " + remainingClicks;
         successes.text = "ACIERTOS: " + successesCards;
+        score.text = "PUNTAJE: " + scorePlayer;
+    }
+
+    public void GameOver(){
+        if(remainingClicks != 0 && successesCards == 7){
+            for (var i = 0; i < remainingClicks; i++)
+            {
+                bonusScorePlayer += 25;
+            }
+        }
+        cardsParentObject.SetActive(false);
+        gameInfoSup.SetActive(false);
+        gameInfoInf.SetActive(false);
+        scoreGameOver.text = "PUNTAJE: " + scorePlayer;
+        bonusGameOver.text = "BONUS: " + bonusScorePlayer;
+        totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
+        gameOver.SetActive(true); 
+        playing = false;
     }
 
     List<CardInfo> Levels(string level)

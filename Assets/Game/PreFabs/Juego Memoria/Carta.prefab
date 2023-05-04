@@ -218,6 +218,6 @@ MonoBehaviour:
   spriteHidden: {fileID: 21300000, guid: 30728c85465b8004c8f18e570139dc44, type: 3}
   idCard: 0
   info: {fileID: 0}
-  delay: 3
+  delay: 2
   controller: {fileID: 0}
   showing: 0
