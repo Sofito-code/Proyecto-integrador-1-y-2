@@ -1,0 +1,251 @@
+using System.Globalization;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System.IO;
+using System;
+using TMPro;
+
+public class CardController : MonoBehaviour
+{
+    public GameObject CardPrefab;
+    public int cols;
+    public int row;
+    public Transform cardsParent;
+    public Sprite[] sprites;
+    public string level;
+    public TMP_Text attempts;
+    public TMP_Text successes;
+    public TMP_Text time;
+    public TMP_Text score;
+    public TMP_Text scoreGameOver;
+    public TMP_Text bonusGameOver;
+    public TMP_Text totalGameOver;
+    public GameObject gameOver;
+    public GameObject gameInfoSup;
+    public GameObject gameInfoInf;
+    public GameObject cardsParentObject;
+    public GameObject instructions;
+    public float limit = 900f;    
+
+    private List<CardInfo> questions;
+    private List<GameObject> cards = new List<GameObject>();
+    private int remainingClicks = 20;
+    private int successesCards = 0;
+    private int scorePlayer = 0;
+    private int bonusScorePlayer = 0;
+
+    private Card displayedCard;
+    public bool isAvailable { set; get; } = true;
+    private bool playing = false;
+    private float temp = 0f;
+    private string textTime = "00:00";    
+
+    void Start()
+    {
+        questions = Levels(level);
+        Create();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(playing){
+            if(temp>= limit || remainingClicks == 0 || successesCards == 7){
+                GameOver();
+            }
+            UploadTimeUI();           
+        }
+    }
+
+    public void StartGame()
+    {
+        instructions.SetActive(false);
+        gameInfoInf.SetActive(true);
+        gameInfoSup.SetActive(true);
+        cardsParentObject.SetActive(true);
+        playing = true;
+    }
+
+    public void UploadTimeUI(){
+        temp += Time.deltaTime;
+        int hor, min, seg; 
+        hor = (int)(temp / 3600);
+        min = (int)((temp - hor * 3600) / 60);
+        seg = (int)(temp - (hor * 3600 + min * 60));
+        
+        if(min < 10 && seg < 10){
+            textTime = "0" + min + ":0" + seg;
+        }else if(min < 10 && seg > 9){
+            textTime = "0" + min + ":" + seg;
+        }else if (min > 9 && seg < 10){
+            textTime = min + ":0" + seg;
+        }else{
+            textTime = min + ":" + seg;
+        }
+        time.text = "TIEMPO: " + textTime;
+    }
+
+    public void Create()
+    {
+
+        int x = 210;
+        for (int i = 0; i < cols; i++)
+        {
+            int y = 740;
+            for (int j = 0; j < row; j++)
+            {
+                GameObject cardTemp = Instantiate(
+                    CardPrefab,
+                    new Vector3(x, y, 0),
+                    Quaternion.Euler(new Vector3(0, 0, 0))
+                );
+                cards.Add(cardTemp);
+                
+                cardTemp.GetComponent<Card>().originalPos = new Vector3(x, y, 0);
+                cardTemp.transform.SetParent(cardsParent);
+                y -= 400;
+            }
+            x += 250;
+        }
+        CardsInfo();
+        RandomPositions();
+    }
+
+    void CardsInfo()
+    {
+        bool isQuestion = true;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            CardInfo question = questions[i/2];
+            cards[i].GetComponent<Card>().SetImage(sprites[question.topic]);
+            cards[i].GetComponent<Card>().topic = question.topic;
+            cards[i].GetComponent<Card>().idCard = Int16.Parse(question.id);
+            if (isQuestion)
+            {
+                cards[i].GetComponent<Card>().SetText(question.question);
+                isQuestion = false;
+            }
+            else
+            {
+                cards[i].GetComponent<Card>().SetText(question.answer);
+                isQuestion = true;
+            }
+        }
+    }
+
+    void RandomPositions(){
+        int rd;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            rd = UnityEngine.Random.Range(i, cards.Count);
+            cards[i].transform.position =  cards[rd].transform.position;
+            cards[rd].transform.position = cards[i].GetComponent<Card>().originalPos;
+
+            cards[i].GetComponent<Card>().originalPos = cards[i].transform.position;
+            cards[rd].GetComponent<Card>().originalPos = cards[rd].transform.position;
+        }
+    }
+
+    public void onCardClick(Card _card){
+        if (displayedCard == null)
+        {
+            displayedCard = _card;
+        }else{
+            if(displayedCard != null){
+                if(CompareCards(_card,displayedCard)){
+                    successesCards++;
+                    scorePlayer += 50;
+                }
+                else{
+                    _card.HideCard();
+                    displayedCard.HideCard();
+                }
+                displayedCard = null;
+            }
+        }
+        remainingClicks--;
+        UploadUI();
+    }
+
+    public bool CompareCards(Card _card1, Card _card2){
+        return _card1.idCard == _card2.idCard;
+    }
+
+    public void UploadUI(){
+        attempts.text = "INTENTOS RESTANTES: " + remainingClicks;
+        successes.text = "ACIERTOS: " + successesCards;
+        score.text = "PUNTAJE: " + scorePlayer;
+    }
+
+    public void GameOver(){
+        if(remainingClicks != 0 && successesCards == 7){
+            for (var i = 0; i < remainingClicks; i++)
+            {
+                bonusScorePlayer += 25;
+            }
+        }
+        cardsParentObject.SetActive(false);
+        gameInfoSup.SetActive(false);
+        gameInfoInf.SetActive(false);
+        scoreGameOver.text = "PUNTAJE: " + scorePlayer;
+        bonusGameOver.text = "BONUS: " + bonusScorePlayer;
+        totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
+        gameOver.SetActive(true); 
+        playing = false;
+    }
+
+    List<CardInfo> Levels(string level)
+    {
+        CardInfo[] data = UploadData();
+        List<CardInfo> cardList = new List<CardInfo>();
+        foreach (CardInfo item in data)
+        {
+            if (item.level.Equals(level))
+            {
+                cardList.Add(item);
+            }
+        }
+        return cardList;
+    }
+
+    CardInfo[] UploadData()
+    {
+        string path = "Assets/Data/memoria.txt";
+        string[] text = File.ReadAllLines(path);
+        int infoLength = text.Length;
+        CardInfo[] data = new CardInfo[infoLength];
+        for (int cont = 0; cont < infoLength; cont++)
+        {
+            string level = text[cont].Split('|')[0];
+            string id = text[cont].Split('|')[1];
+            string question = text[cont].Split('|')[2];
+            string answer = text[cont].Split('|')[3];
+            int topic = Int16.Parse(text[cont].Split('|')[4]);
+            CardInfo cardInfoTemp = new CardInfo(level, id, question, answer, topic);
+            data[cont] = cardInfoTemp;
+        }
+        return data;
+    }
+}
+
+class CardInfo
+{
+    public string level { get; }
+    public string id { get; }
+    public string question { get; }
+    public string answer { get; }
+    public int topic { get; }
+
+    public CardInfo() { }
+
+    public CardInfo(string level, string id, string question, string answer, int topic)
+    {
+        this.level = level;
+        this.id = id;
+        this.question = question;
+        this.answer = answer;
+        this.topic = topic;
+    }
+}

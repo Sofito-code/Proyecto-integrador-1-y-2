@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Game/UI/Menu/Videojuego (2)_page-0001.jpg.meta
 guid: 76588ad40cfb23c40be38afee1e6fd9d
+========
+guid: f2bee6d890b021746964625f1918090e
+>>>>>>>> hu13-juego-memoria:Assets/Game/UI/Juego_Memoria/button.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
