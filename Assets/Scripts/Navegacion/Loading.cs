@@ -8,11 +8,11 @@ public class Loading : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string levelToLoad = LevelLoader.nextLevel;
+        int levelToLoad = LevelLoader.nextLevel;
         StartCoroutine(this.MakeTheLoad(levelToLoad));        
     }
 
-    IEnumerator MakeTheLoad(string level)
+    IEnumerator MakeTheLoad(int level)
     {
         //Esta linea se puede eliminar para que no retrase el juego
         yield return new WaitForSeconds(2.5f);

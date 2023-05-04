@@ -6,6 +6,6 @@ public class ToCartas : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        LevelLoader.LoadLevel("Juego_memoria");
+        LevelLoader.LoadLevel(4);
     }
 }

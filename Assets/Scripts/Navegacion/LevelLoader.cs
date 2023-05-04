@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public static class LevelLoader
 {
-    public static string nextLevel;
+    public static int nextLevel;
 
-    public static void LoadLevel(string levelName)
+    public static void LoadLevel(int levelName)
     {
         nextLevel = levelName;
-        SceneManager.LoadScene("Loading");
+        SceneManager.LoadScene(2);
     }
 }

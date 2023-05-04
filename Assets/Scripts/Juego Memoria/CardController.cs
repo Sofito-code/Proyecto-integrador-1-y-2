@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using System;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CardController : MonoBehaviour
 {
@@ -194,6 +195,10 @@ public class CardController : MonoBehaviour
         totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
         gameOver.SetActive(true); 
         playing = false;
+    }
+
+    public void buttonBack(){
+        SceneManager.LoadScene(1);
     }
 
     List<CardInfo> Levels(string level)
