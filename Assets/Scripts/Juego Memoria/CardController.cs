@@ -24,6 +24,8 @@ public class CardController : MonoBehaviour
     public TMP_Text bonusGameOver;
     public TMP_Text totalGameOver;
     public GameObject gameOver;
+    public GameObject pause;
+    public Sprite[] pauseSprites;
     public GameObject gameInfoSup;
     public GameObject gameInfoInf;
     public GameObject cardsParentObject;
@@ -36,6 +38,7 @@ public class CardController : MonoBehaviour
     private int successesCards = 0;
     private int scorePlayer = 0;
     private int bonusScorePlayer = 0;
+    private static bool gameisPaused = false;
 
     private Card displayedCard;
     public bool isAvailable { set; get; } = true;
@@ -59,6 +62,60 @@ public class CardController : MonoBehaviour
             UploadTimeUI();           
         }
     }
+
+    public void ReloadGame(){
+        this.remainingClicks = 20;
+        this.successesCards = 0;
+        this.scorePlayer = 0;
+        this.bonusScorePlayer = 0;
+        this.playing = false;
+        this.temp = 0f;
+        this.textTime = "00:00";
+        time.text = "TIEMPO: " + textTime;
+        UploadUI();
+        //Eliminar cartas
+        cards.Clear();
+        int children = cardsParent.childCount;
+        for (int i = 0; i < children; ++i)
+            Destroy(cardsParent.GetChild(i).gameObject);       
+        Start();
+        instructions.SetActive(true);
+        gameInfoInf.SetActive(false);
+        gameInfoSup.SetActive(false);
+        cardsParentObject.SetActive(false);
+        playing = false;
+    }
+
+    public void PauseGame()
+    {
+        if (gameisPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
+        }
+    }
+
+    public void Resume()
+    {
+        gameInfoInf.transform.GetChild(5).gameObject.GetComponent<Button>().image.sprite= pauseSprites[0];
+        pause.SetActive(false);
+        Time.timeScale = 1f;
+        gameisPaused = false;
+        playing = true;
+    }
+
+    void Pause()
+    {
+        gameInfoInf.transform.GetChild(5).gameObject.GetComponent<Button>().image.sprite= pauseSprites[1];
+        pause.SetActive(true);
+        Time.timeScale = 0f;
+        gameisPaused = true;         
+        playing = false;
+    }
+    
 
     public void StartGame()
     {
