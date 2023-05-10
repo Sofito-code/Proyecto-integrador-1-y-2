@@ -7,6 +7,7 @@ using System.IO;
 using System;
 using TMPro;
 using UnityEngine.SceneManagement;
+using static CardInfo;
 
 public class CardController : MonoBehaviour
 {
@@ -258,7 +259,20 @@ public class CardController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    List<CardInfo> Levels(string level)
+    public void Shuffle<CardInfo>(List<CardInfo> list)  
+    {  
+        System.Random rng = new System.Random();
+        int n = list.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = rng.Next(n + 1);  
+            CardInfo value = list[k];  
+            list[k] = list[n];  
+            list[n] = value;  
+        }  
+    }
+
+    private List<CardInfo> Levels(string level)
     {
         CardInfo[] data = UploadData();
         List<CardInfo> cardList = new List<CardInfo>();
@@ -269,10 +283,11 @@ public class CardController : MonoBehaviour
                 cardList.Add(item);
             }
         }
+        Shuffle(cardList);
         return cardList;
     }
 
-    CardInfo[] UploadData()
+    private CardInfo[] UploadData()
     {
         string path = "Assets/Data/memoria.txt";
         string[] text = File.ReadAllLines(path);
@@ -289,25 +304,5 @@ public class CardController : MonoBehaviour
             data[cont] = cardInfoTemp;
         }
         return data;
-    }
-}
-
-class CardInfo
-{
-    public string level { get; }
-    public string id { get; }
-    public string question { get; }
-    public string answer { get; }
-    public int topic { get; }
-
-    public CardInfo() { }
-
-    public CardInfo(string level, string id, string question, string answer, int topic)
-    {
-        this.level = level;
-        this.id = id;
-        this.question = question;
-        this.answer = answer;
-        this.topic = topic;
     }
 }
