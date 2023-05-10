@@ -3293,7 +3293,6 @@ GameObject:
   - component: {fileID: 4386136342595857646}
   - component: {fileID: 4386136342595857647}
   - component: {fileID: 4386136342595857644}
-  - component: {fileID: 1323223257066466946}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3423,23 +3422,12 @@ MonoBehaviour:
   totalGameOver: {fileID: 1424709240}
   gameOver: {fileID: 5807833198399295246}
   pause: {fileID: 0}
+  pauseSprites: []
   gameInfoSup: {fileID: 4386136342388799365}
   gameInfoInf: {fileID: 4386136342202527809}
   cardsParentObject: {fileID: 4386136342359364921}
   instructions: {fileID: 1092739010}
   limit: 900
---- !u!114 &1323223257066466946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4386136342595857645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 942fbd7384140e2439e45848dca5e74f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4386136342742223464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3675,7 +3663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1323223257066466946}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuControl, Assembly-CSharp
         m_MethodName: buttonBack
         m_Mode: 1
