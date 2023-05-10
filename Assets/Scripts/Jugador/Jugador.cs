@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Jugador : MonoBehaviour
     public float rotacion = 200.0f;
     private Animator anim;
     public float x, y;
-
+    public Transform player;
    
 
 
