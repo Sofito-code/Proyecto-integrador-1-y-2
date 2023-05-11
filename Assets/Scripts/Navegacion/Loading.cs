@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Loading : MonoBehaviour
 {
     public GameObject PantallaDeCarga;
     public Slider Slider;
+    public TextMeshProUGUI tmp;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,8 @@ public class Loading : MonoBehaviour
         {
             float Progreso = Mathf.Clamp01(operation.progress / .9f);
             Debug.Log(Progreso);
-            Slider.value = Progreso;            
+            Slider.value = Progreso; 
+            tmp.text = (Progreso * 100) + "%";           
             yield return null;
         }
     }
