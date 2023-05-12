@@ -21,7 +21,7 @@ public class Loading : MonoBehaviour
     IEnumerator MakeTheLoad(int level)
     {
         //Esta linea se puede eliminar para que no retrase el juego
-        //yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.5f);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(level);
 
