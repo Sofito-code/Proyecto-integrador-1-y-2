@@ -7,11 +7,11 @@ public class MenuControl : MonoBehaviour
 {
 
     public void buttonStart(){
-        SceneManager.LoadScene(1);
+        LevelLoader.LoadLevel(1);
     }
 
     public void buttonCredit(){
-        SceneManager.LoadScene(4);
+        //SceneManager.LoadScene(4);
     }
 
     public void buttonInstructions(){
