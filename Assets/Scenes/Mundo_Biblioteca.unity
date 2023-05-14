@@ -5141,7 +5141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &337952612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6540,9 +6540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"velocidad","value":{"$content":4,"$type":"System.Int32"},"$version":"A"},{"name":"Camara1","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"velocidadRotacion","value":{"$content":50,"$type":"System.Int32"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences:
-    - {fileID: 0}
+    _json: '{"declarations":{"collection":{"$content":[{"name":"velocidad","value":{"$content":4,"$type":"System.Int32"},"$version":"A"},{"name":"velocidadRotacion","value":{"$content":50,"$type":"System.Int32"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
 --- !u!114 &1990115055
 MonoBehaviour:
   m_ObjectHideFlags: 0
