@@ -20,15 +20,14 @@ public class RunnerController : MonoBehaviour
     void Start()
     {
         anim = player.transform.GetChild(0).GetComponent<Animator>();
-        //auxRail = rail1;
         auxRail = (Transform[])rail1.Clone();
-        //Array.Copy(rail1, auxRail, rail1.Length);
     }
 
     // Update is called once per frame
     void Update()
     {
         anim.SetFloat("VelY", 1);
+
         if (isRunning)
         {
             StartCoroutine(Run());
@@ -42,35 +41,37 @@ public class RunnerController : MonoBehaviour
         for (int i = 0; i < auxRail.Length; i++)
         {
             point = i;
-            Debug.Log($"{i}");
             arrive = false;
             while (!arrive)
             {
                 if (player.transform.position != auxRail[i].position)
                 {
                     yield return new WaitForSeconds(Time.deltaTime);
-                    if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
+                    if (Input.GetKeyDown("right"))
                     {
-                        Debug.Log($"{auxRail[i].position} != {rail2[i].position}");
                         if (auxRail[i].position != rail2[i].position)
                         {
-                            Debug.Log($"Pasando");
+                            Debug.Log($"Pasando");     
                             changeRail(rail2);
-                            StartCoroutine(RunHorizontally());
+                            if(point == 0 || point == 5){
+                                StartCoroutine(RunHorizontally());
+                            }
                         }
                         else
                         {
                             Debug.Log($"No puedo pasar a la dere");
                         }
                     }
-                    if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
+                    if (Input.GetKeyDown("left"))
                     {
-                        Debug.Log($"{auxRail[i].position} != {rail1[i].position}");
+                        
                         if (auxRail[i].position != rail1[i].position)
                         {
                             Debug.Log($"Pasando");
                             changeRail(rail1);
-                            StartCoroutine(RunHorizontally());
+                            if(point == 0 || point == 5){
+                                StartCoroutine(RunHorizontally());
+                            }                            
                         }
                         else
                         {
@@ -127,7 +128,6 @@ public class RunnerController : MonoBehaviour
                 llegoAlCarril = true;
             }
         }
-        Debug.Log($"Termine RunHorizontally");
     }
 
     void changeRail(Transform[] rail)
