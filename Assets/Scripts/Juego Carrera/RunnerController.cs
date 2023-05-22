@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +26,6 @@ public class RunnerController : MonoBehaviour
     void Update()
     {
         anim.SetFloat("VelY", 1);
-
         if (isRunning)
         {
             StartCoroutine(Run());
@@ -38,55 +36,37 @@ public class RunnerController : MonoBehaviour
     IEnumerator Run()
     {
         bool arrive;
-        for (int i = 0; i < auxRail.Length; i++)
-        {
-            point = i;
+        for (point = 0; point < auxRail.Length; point++)
+        {            
             arrive = false;
             while (!arrive)
             {
-                if (player.transform.position != auxRail[i].position)
+                if (player.transform.position != auxRail[point].position)
                 {
                     yield return new WaitForSeconds(Time.deltaTime);
-                    if (Input.GetKeyDown("right"))
+                    if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
                     {
-                        if (auxRail[i].position != rail2[i].position)
-                        {
-                            Debug.Log($"Pasando");     
-                            changeRail(rail2);
-                            if(point == 0 || point == 5){
-                                StartCoroutine(RunHorizontally());
-                            }
-                        }
-                        else
-                        {
-                            Debug.Log($"No puedo pasar a la dere");
+                        if (auxRail[point].position != rail2[point].position)
+                        {    
+                            ChangeRail(rail2);
                         }
                     }
-                    if (Input.GetKeyDown("left"))
-                    {
-                        
-                        if (auxRail[i].position != rail1[i].position)
+                    if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
+                    {                        
+                        if (auxRail[point].position != rail1[point].position)
                         {
-                            Debug.Log($"Pasando");
-                            changeRail(rail1);
-                            if(point == 0 || point == 5){
-                                StartCoroutine(RunHorizontally());
-                            }                            
-                        }
-                        else
-                        {
-                            Debug.Log($"No puedo pasar a la izquierde");
+                            ChangeRail(rail1);                           
                         }
                     }
                     player.transform.position = Vector3.MoveTowards(
                         player.transform.position,
-                        auxRail[i].position,
+                        auxRail[point].position,
                         velocidad * Time.deltaTime
                     );
-                    if ((auxRail[i].position - player.transform.position) != new Vector3(0, 0, 0))
+                    if ((auxRail[point].position - player.transform.position) != new Vector3(0, 0, 0))
                     {
                         Quaternion rotation = Quaternion.LookRotation(
-                            auxRail[i].position - player.transform.position
+                            auxRail[point].position - player.transform.position
                         );
                         player.transform.rotation = Quaternion.Lerp(
                             player.transform.rotation,
@@ -100,43 +80,19 @@ public class RunnerController : MonoBehaviour
                     arrive = true;
                 }
             }
-            if (career && i == (auxRail.Length - 1))
+            if (career && point == (auxRail.Length - 1))
             {
-                i = -1;
+                point = -1;
             }
         }
     }
 
-    IEnumerator RunHorizontally()
-    {
-        bool llegoAlCarril = false;
-        while (!llegoAlCarril)
-        {
-            float distancia = auxRail[point].position.z - player.transform.position.z;            
-            if (Abs(distancia) > 0.09f)
-            {
-                yield return new WaitForSeconds(Time.deltaTime);
-                Vector3 final = player.transform.position + new Vector3(0, 0, distancia);
-                player.transform.position = Vector3.MoveTowards(
-                    player.transform.position,
-                    final,
-                    velocidad * Time.deltaTime
-                );
-            }
-            else
-            {
-                llegoAlCarril = true;
-            }
-        }
-    }
-
-    void changeRail(Transform[] rail)
+    void ChangeRail(Transform[] rail)
     {
         for (int i = 0; i < rail.Length; i++)
         {
             auxRail[i] = rail[i];
         }
-        Debug.Log($"Carril listo");
     }
 
     float Abs(float a)
