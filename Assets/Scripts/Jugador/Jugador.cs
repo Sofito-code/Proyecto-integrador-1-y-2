@@ -24,11 +24,11 @@ public class Jugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
+/*         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
         anim.SetFloat("VelX", x);
-        anim.SetFloat("VelY", y);
+        anim.SetFloat("VelY", y); */
 
 
     }
