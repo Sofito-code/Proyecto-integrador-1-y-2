@@ -1,0 +1,36 @@
+1|101|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
+1|102|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
+1|103|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
+1|104|¿Cuánto vale el número pi?|3.1416|206 huesos|
+1|105|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
+1|106|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
+1|107|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
+1|108|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
+1|109|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
+1|110|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
+1|111|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
+1|112|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
+2|201|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
+2|202|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
+2|203|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
+2|204|¿Cuánto vale el número pi?|3.1416|206 huesos|
+2|205|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
+2|206|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
+2|207|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
+2|208|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
+2|209|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
+2|210|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
+2|211|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
+2|212|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
+3|301|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
+3|302|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
+3|303|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
+3|304|¿Cuánto vale el número pi?|3.1416|206 huesos|
+3|305|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
+3|306|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
+3|307|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
+3|308|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
+3|309|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
+3|310|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
+3|311|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
+3|312|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
