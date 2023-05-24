@@ -47,6 +47,8 @@ public class CardController : MonoBehaviour
     private float temp = 0f;
     private string textTime = "00:00";    
 
+    private memoria memoriaDB = new memoria();
+
     void Start()
     {
         questions = Levels(level);
@@ -251,6 +253,7 @@ public class CardController : MonoBehaviour
         scoreGameOver.text = "PUNTAJE: " + scorePlayer;
         bonusGameOver.text = "BONUS: " + bonusScorePlayer;
         totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
+        memoriaDB.updateScore(scorePlayer + bonusScorePlayer); //actualizar DB
         gameOver.SetActive(true); 
         playing = false;
     }
