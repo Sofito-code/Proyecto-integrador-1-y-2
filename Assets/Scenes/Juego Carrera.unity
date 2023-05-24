@@ -5834,6 +5834,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3841686062359023064, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_Text
+      value: Al responder correctamente 4 preguntas seguidas obtendras puntos extra.
+      objectReference: {fileID: 0}
     - target: {fileID: 3841686062501517192, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5871,6 +5876,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 541988985}
@@ -5881,12 +5891,22 @@ PrefabInstance:
       objectReference: {fileID: 541988984}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 541988985}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
@@ -5901,6 +5921,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StartScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: QuestionController, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5908,6 +5933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: RunnerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: QuestionController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
@@ -5919,10 +5949,55 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062941100249, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_text
+      value: 'PUNTAJE: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062941100249, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 7.1835136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062941100249, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -29.008629
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062941100249, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -33.389824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062941100249, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3841686063356113107, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_text
       value: 'RACHA DE ACIERTOS:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063356113107, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -202.74554
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063356113107, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 50.3685
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063356113107, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3841686063458428396, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
@@ -5933,6 +6008,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063506860824, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_text
+      value: 'ACIERTOS:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063506860824, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.x
+      value: -21.92157
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063506860824, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -16.980225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063506860824, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5579640114986626104, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
