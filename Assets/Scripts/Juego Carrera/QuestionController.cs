@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,11 +30,14 @@ public class QuestionController : MonoBehaviour
     public GameObject gameInfoSup;
     public GameObject pause;
     public Transform questionsParent;
+    private int success = 0;
+    private int score = 0;
+    private int rate = 0;
     public string level;
 
     private List<QuestionInfo> questions;
     private List<GameObject> modules = new List<GameObject>();
-    private bool playing = false;    
+    private bool playing = false;
     private static bool gameisPaused = false;
 
     // Start is called before the first frame update
@@ -51,15 +55,59 @@ public class QuestionController : MonoBehaviour
                             GameOver();
                         }
                         UploadTimeUI();  */
-            UploadUI();
+            //UploadUI();
+            
+            StartCoroutine(Score());
         }
-
+        
     }
 
+    IEnumerator Score()
+    {
+        bool rate = false;
+        int scores = 0;
+        int succ = 0;
+        int rateConsec = 0;
+        int rates = 0;
+        yield return new WaitForSeconds(Time.deltaTime);
+        for (int i = 0; i < modules.Count; i++)
+        {            
+            if (modules[i].GetComponent<Question>().answered) {
+                
+                if(!rate){                    
+                    rateConsec = 0;
+                }
+                if(modules[i].GetComponent<Question>().isChoseCorrect){
+                    rate = true;
+                    rateConsec += 1;
+                    succ += 1;
+                }
+                else{
+                    rate = false;
+                }
+                if(rateConsec == 4){
+                    rates += 1;
+                    rateConsec = 0;
+                }
+            }
+        }
+        scores = succ * 30;
+        this.success = succ;
+        this.score =  scores;
+        this.rate = rates;
+        UploadUI();
+        //Debug.Log($"ACIERTOS: {success} PUNTAJE: {score} RACHA DE ACIERTOS: {rates}");
+        
+    }
 
-    public void UploadUI(){
-
-        gameInfoInf.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = "RACHA DE ACIERTOS: " + 4;
+    public void UploadUI()
+    {
+        gameInfoInf.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
+            "RACHA DE ACIERTOS: " + rate;
+        gameInfoInf.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
+            "ACIERTOS: " + success;
+        gameInfoSup.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
+            "PUNTAJE: " + score;
     }
 
     public void Create()
@@ -94,7 +142,7 @@ public class QuestionController : MonoBehaviour
             modules[i].GetComponent<Question>().rightAnswer = questions[i].rightAnswer;
         }
     }
-    
+
     public void StartGame()
     {
         instructions.SetActive(false);
