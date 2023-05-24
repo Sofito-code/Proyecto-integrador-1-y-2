@@ -12,32 +12,34 @@ public class RunnerController : MonoBehaviour
     public float velocidad;
     public bool career = true;
     public float velRotacion;
-    private Animator anim;
     private int point = 0;
-    private bool isRunning = true;
+
+    //private bool isRunning = true;
 
     void Start()
     {
-        anim = player.transform.GetChild(0).GetComponent<Animator>();
         auxRail = (Transform[])rail1.Clone();
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() { }
+
+    public void StartRuninng()
     {
-        anim.SetFloat("VelY", 1);
-        if (isRunning)
-        {
-            StartCoroutine(Run());
-            isRunning = false;
-        }
+        StartCoroutine(Run());
+        StartCoroutine(Animate());
+    }
+
+    IEnumerator Animate(){
+        player.transform.GetChild(0).GetComponent<Animator>().SetFloat("VelY", 1);
+        yield return null;
     }
 
     IEnumerator Run()
     {
         bool arrive;
         for (point = 0; point < auxRail.Length; point++)
-        {            
+        {
             arrive = false;
             while (!arrive)
             {
@@ -47,15 +49,15 @@ public class RunnerController : MonoBehaviour
                     if (Input.GetKeyDown("right") || Input.GetKeyDown("d"))
                     {
                         if (auxRail[point].position != rail2[point].position)
-                        {    
+                        {
                             ChangeRail(rail2);
                         }
                     }
                     if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
-                    {                        
+                    {
                         if (auxRail[point].position != rail1[point].position)
                         {
-                            ChangeRail(rail1);                           
+                            ChangeRail(rail1);
                         }
                     }
                     player.transform.position = Vector3.MoveTowards(
@@ -63,7 +65,10 @@ public class RunnerController : MonoBehaviour
                         auxRail[point].position,
                         velocidad * Time.deltaTime
                     );
-                    if ((auxRail[point].position - player.transform.position) != new Vector3(0, 0, 0))
+                    if (
+                        (auxRail[point].position - player.transform.position)
+                        != new Vector3(0, 0, 0)
+                    )
                     {
                         Quaternion rotation = Quaternion.LookRotation(
                             auxRail[point].position - player.transform.position
