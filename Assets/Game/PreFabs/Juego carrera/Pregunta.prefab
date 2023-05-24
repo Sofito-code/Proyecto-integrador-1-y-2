@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6605069324092054015}
   - component: {fileID: 6605069324092054012}
   - component: {fileID: 6605069324092054013}
-  - component: {fileID: 6605069324092054014}
   m_Layer: 0
   m_Name: Respuesta1
   m_TagString: Untagged
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6605069324092054014
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6605069324092054000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6605069324115317152
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +92,8 @@ GameObject:
   - component: {fileID: 6605069324115317167}
   - component: {fileID: 6605069324115317165}
   - component: {fileID: 6605069324115317166}
+  - component: {fileID: 8778237332328567053}
+  - component: {fileID: 2362054958028754245}
   m_Layer: 0
   m_Name: Text Respuesta2
   m_TagString: Untagged
@@ -193,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: adaffgegegseg
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -265,6 +253,31 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!65 &8778237332328567053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605069324115317152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.7835584, y: 3.0176747, z: 0.29136184}
+  m_Center: {x: -4.818066, y: 0.20872489, z: -0.00000032645303}
+--- !u!114 &2362054958028754245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605069324115317152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d08422598b5e74f8c7c96b1badb228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6605069324608728807
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: adaffgegegseg
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -445,6 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6605069325146962185}
   - component: {fileID: 7604542184093770195}
+  - component: {fileID: 1862013999128465498}
   m_Layer: 0
   m_Name: Pregunta
   m_TagString: Untagged
@@ -487,6 +501,21 @@ MonoBehaviour:
   title: {fileID: 6605069324608728807}
   answer1: {fileID: 6605069325713837132}
   answer2: {fileID: 6605069324115317152}
+  rightAnswer: 
+  id: 
+--- !u!65 &1862013999128465498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605069325146962186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.846948, y: 3.1233435, z: 16.81419}
+  m_Center: {x: -0.07652622, y: 0.020817041, z: -0.27062225}
 --- !u!1 &6605069325531966911
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +527,6 @@ GameObject:
   - component: {fileID: 6605069325531966910}
   - component: {fileID: 6605069325531966907}
   - component: {fileID: 6605069325531966908}
-  - component: {fileID: 6605069325531966909}
   m_Layer: 0
   m_Name: Respuesta2
   m_TagString: Untagged
@@ -569,19 +597,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6605069325531966909
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6605069325531966911}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6605069325674023013
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +703,8 @@ GameObject:
   - component: {fileID: 6605069325713837131}
   - component: {fileID: 6605069325713837129}
   - component: {fileID: 6605069325713837130}
+  - component: {fileID: 7809554330097946233}
+  - component: {fileID: 4605472974996993721}
   m_Layer: 0
   m_Name: Text Respuesta1
   m_TagString: Untagged
@@ -775,7 +792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: adaffgegegseg
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -847,3 +864,28 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!65 &7809554330097946233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605069325713837132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.825275, y: 3.0004773, z: 0.28084832}
+  m_Center: {x: -4.7674685, y: 0.19689752, z: -0.0000026129194}
+--- !u!114 &4605472974996993721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605069325713837132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d08422598b5e74f8c7c96b1badb228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
