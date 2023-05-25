@@ -13,26 +13,25 @@ public class RunnerController : MonoBehaviour
     public bool career = true;
     public float velRotacion;
     private int point = 0;
+    public Coroutine spawnCoroutine;
+
 
     //private bool isRunning = true;
 
     void Start()
     {
-        auxRail = (Transform[])rail1.Clone();
+        auxRail = (Transform[])rail2.Clone();
     }
 
     // Update is called once per frame
-    void Update() { }
-
-    public void StartRuninng()
+    void Update()
     {
-        StartCoroutine(Run());
-        StartCoroutine(Animate());
     }
 
-    IEnumerator Animate(){
-        player.transform.GetChild(0).GetComponent<Animator>().SetFloat("VelY", 1);
-        yield return null;
+    public void StopSpawn() => StopCoroutine(spawnCoroutine);
+    public void StartRuninng()
+    {
+        spawnCoroutine = StartCoroutine(Run());
     }
 
     IEnumerator Run()
