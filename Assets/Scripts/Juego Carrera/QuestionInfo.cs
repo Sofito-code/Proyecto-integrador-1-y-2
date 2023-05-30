@@ -23,7 +23,7 @@ public class QuestionInfo
         this.answer1 = answer1;
         this.answer2 = answer2;
         System.Random rnd = new System.Random();
-        if(rnd.Next(100) % 4 == 0){
+        if(rnd.Next(6) % 2 == 0){
             this.answer1 = answer2;
             this.answer2 = rightAnswer;
         }
