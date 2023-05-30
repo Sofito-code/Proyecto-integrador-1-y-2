@@ -98,4 +98,16 @@ public class RunnerController : MonoBehaviour
             auxRail[i] = rail[i];
         }
     }
+
+    float Abs(float a)
+    {
+        if (a < 0)
+        {
+            return a * -1;
+        }
+        else
+        {
+            return a;
+        }
+    }
 }
