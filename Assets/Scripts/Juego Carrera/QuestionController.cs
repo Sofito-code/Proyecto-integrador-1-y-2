@@ -31,11 +31,11 @@ public class QuestionController : MonoBehaviour
     public GameObject gameInfoSup;
     public GameObject pauseCanvas;
     public GameObject gameOverCanvas;
-    public GameObject start;
     public Transform questionsParent;
     public Sprite[] pauseSprites;
     public string level;
 
+    private int FinalScoring = 0;
     private int successes = 0;
     private int scoring = 0;
     private int bonusScore = 0;
@@ -64,25 +64,29 @@ public class QuestionController : MonoBehaviour
             if (12 == questionCheck || 5 == wrongAnswers)
             {
                 GameOver();
-                if(questionCheck == 12){
+                if (questionCheck == 12)
+                {
                     this.GetComponent<RunnerController>().StopSpawn();
-                    StopCoroutine(scoreC);     
+                    StopCoroutine(scoreC);
                     VictoryAnimate();
                 }
-                if(wrongAnswers == 5){ 
+                if (wrongAnswers == 5)
+                {
                     this.GetComponent<RunnerController>().StopSpawn();
-                    StopCoroutine(scoreC);            
+                    StopCoroutine(scoreC);
                     DefeatAnimate();
                 }
             }
         }
-    }    
+    }
 
-    void VictoryAnimate(){
+    void VictoryAnimate()
+    {
         player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", true);
     }
 
-    void DefeatAnimate(){
+    void DefeatAnimate()
+    {
         player.transform.GetChild(0).GetComponent<Animator>().SetBool("Defeat", true);
     }
 
@@ -167,20 +171,26 @@ public class QuestionController : MonoBehaviour
             "ACIERTOS: " + successes;
         gameInfoSup.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
             "PUNTAJE: " + scoring;
-    }  
+    }
 
-    public void GameOver(){        
+    public void GameOver()
+    {
         //cardsParentObject.SetActive(false);
         gameInfoSup.SetActive(false);
         gameInfoInf.SetActive(false);
-        gameOverCanvas.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = "PUNTAJE: " + scoring;
-        gameOverCanvas.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = "BONUS: " + bonusScore;
-        gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = "TOTAL: " + (scoring + bonusScore);
-        gameOverCanvas.SetActive(true); 
-        playing = false;    
+        gameOverCanvas.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
+            "PUNTAJE: " + scoring;
+        gameOverCanvas.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text =
+            "BONUS: " + bonusScore;
+        FinalScoring = (scoring + bonusScore);
+        gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
+            "TOTAL: " + FinalScoring;
+        gameOverCanvas.SetActive(true);
+        playing = false;
     }
 
-    public void ReloadGame(){
+    public void ReloadGame()
+    {
         //set en cero todo
         successes = 0;
         scoring = 0;
@@ -189,21 +199,22 @@ public class QuestionController : MonoBehaviour
         questionCheck = 0;
         wrongAnswers = 0;
         streakCounter = 0;
+        FinalScoring = 0;
         playing = true;
         instructions.SetActive(true);
         gameInfoInf.SetActive(false);
         gameInfoSup.SetActive(false);
-        questionsParent.gameObject.SetActive(false);    
-        gameOverCanvas.SetActive(false);  
-        player.transform.GetChild(0).GetComponent<Animator>().SetBool("Defeat", false);    
-        player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", false);    
-        player.transform.position = new Vector3(63.9f,0.2818546f, 34.5f);
-        player.transform.rotation = Quaternion.Euler(0,-90,0);
-        this.GetComponent<RunnerController>().StopSpawn();        
+        questionsParent.gameObject.SetActive(false);
+        gameOverCanvas.SetActive(false);
+        player.transform.GetChild(0).GetComponent<Animator>().SetBool("Defeat", false);
+        player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", false);
+        player.transform.position = new Vector3(63.9f, 0.2818546f, 34.5f);
+        player.transform.rotation = Quaternion.Euler(0, -90, 0);
+        this.GetComponent<RunnerController>().StopSpawn();
         //Eliminar cartas
         modules.Clear();
         for (int i = 0; i < questionsParent.childCount; ++i)
-            Destroy(questionsParent.GetChild(i).gameObject);       
+            Destroy(questionsParent.GetChild(i).gameObject);
         Start();
     }
 
@@ -214,7 +225,6 @@ public class QuestionController : MonoBehaviour
         gameInfoSup.SetActive(true);
         questionsParent.gameObject.SetActive(true);
         playing = true;
-        
     }
 
     public void PauseGame()

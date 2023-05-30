@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juego_memoria.unity
     guid: db3dd9de5c7e2ed449cfd6d9bc3beaf9
+  - enabled: 1
+    path: Assets/Scenes/Juego Carrera.unity
+    guid: 83d0e52a37007af4da61dd5f5640604b
   m_configObjects: {}
