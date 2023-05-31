@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    public float velocidad = 5.0f;
-    public float rotacion = 200.0f;
     private Animator anim;
-    public float x,
-        y;
+    private float x,y;
 
     // Start is called before the first frame update
     void Start()
