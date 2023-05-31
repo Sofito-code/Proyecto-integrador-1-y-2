@@ -75,6 +75,11 @@ public class CardController : MonoBehaviour
         this.temp = 0f;
         this.textTime = "00:00";
         time.text = "TIEMPO: " + textTime;
+        gameInfoInf.transform.GetChild(5).gameObject.GetComponent<Button>().image.sprite= pauseSprites[0];
+        pause.SetActive(false);
+        Time.timeScale = 1f;
+        gameisPaused = false;
+        playing = true;
         UploadUI();
         //Eliminar cartas
         cards.Clear();
