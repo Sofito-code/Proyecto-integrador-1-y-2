@@ -33,7 +33,7 @@ public class QuestionController : MonoBehaviour
     public GameObject gameOverCanvas;
     public Transform questionsParent;
     public Sprite[] pauseSprites;
-    public string level;
+    private string level;
 
     private int FinalScoring = 0;
     private int successes = 0;
@@ -53,7 +53,8 @@ public class QuestionController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {  
+        QueryLevelDB();
         questions = Levels(level);
         Create();
     }
@@ -79,9 +80,16 @@ public class QuestionController : MonoBehaviour
                     DefeatAnimate();
                 }
             }
+        }else{
+            QueryLevelDB();
         }
     }
-
+    void QueryLevelDB(){
+        level = this.GetComponent<DBManagement>().QueryRunnerLevel();
+        this.GetComponent<DBManagement>().CloseConn();
+        gameInfoSup.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
+            "NIVEL: " + level;
+    }
     void VictoryAnimate()
     {
         player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", true);
@@ -124,8 +132,8 @@ public class QuestionController : MonoBehaviour
     }
 
     IEnumerator Score()
-    {
-        
+    {        
+
         streakCounter = 0;
         bool isStreak = false;
         int wAnswers = 0;
@@ -135,8 +143,8 @@ public class QuestionController : MonoBehaviour
         int qCheck = 0;
         yield return new WaitForSeconds(Time.deltaTime);
         for (int i = 0; i < modules.Count; i++)
-        {
-            
+        {       
+
             if (modules[i].GetComponent<Question>().answered)
             {
                 qCheck += 1;
@@ -148,8 +156,8 @@ public class QuestionController : MonoBehaviour
                 {
                     isStreak = true;
                     streakCounter += 1;
-                    success += 1;
-                    
+                    success += 1;    
+                                   
                 }
                 else
                 {
@@ -192,6 +200,7 @@ public class QuestionController : MonoBehaviour
         carreraDB.updateScore(FinalScoring);//agregamos el update en la base de datos
         gameOverCanvas.SetActive(true);
         playing = false;
+        this.GetComponent<DBManagement>().QuerySetRunnerLevel();
     }
 
     public void ReloadGame()

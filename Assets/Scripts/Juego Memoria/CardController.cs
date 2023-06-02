@@ -16,7 +16,7 @@ public class CardController : MonoBehaviour
     public int row;
     public Transform cardsParent;
     public Sprite[] sprites;
-    public string level;
+    public TMP_Text levelGame;
     public TMP_Text attempts;
     public TMP_Text successes;
     public TMP_Text time;
@@ -39,6 +39,7 @@ public class CardController : MonoBehaviour
     private int successesCards = 0;
     private int scorePlayer = 0;
     private int bonusScorePlayer = 0;
+    private string level;
     private static bool gameisPaused = false;
 
     private Card displayedCard;
@@ -51,7 +52,10 @@ public class CardController : MonoBehaviour
 
     void Start()
     {
+        level = this.GetComponent<DBManagement>().QueryCardsLevel();
+        this.GetComponent<DBManagement>().CloseConn();
         questions = Levels(level);
+        levelGame.text = "NIVEL: " + level;
         Create();
     }
 

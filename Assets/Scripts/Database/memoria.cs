@@ -18,6 +18,7 @@ public class Memoria
         dbConnection.Open();
         IDbCommand dbCommand = dbConnection.CreateCommand();
         dbCommand.CommandText = q;
-        IDataReader reader = dbCommand.ExecuteReader();        
+        IDataReader reader = dbCommand.ExecuteReader(); 
+        dbConnection.Close();     
     }
 }

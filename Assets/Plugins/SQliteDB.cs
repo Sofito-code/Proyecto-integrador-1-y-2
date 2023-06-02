@@ -18,7 +18,7 @@ public class SQliteDB : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Query("SELECT player_name FROM jugadores");        
+        //Query("SELECT player_name FROM jugadores");        
     }
 
     public void Query(string q){
@@ -33,5 +33,6 @@ public class SQliteDB : MonoBehaviour
         {         
             Debug.Log(reader[0]);
         }
+        dbConnection.Close();
     }
 }
