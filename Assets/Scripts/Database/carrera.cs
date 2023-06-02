@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Mono.Data.Sqlite;
+using System.Data;
+
+public class carrera : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void updateScore(int newScore){
+        Query("UPDATE Puntajes SET score = score + " + newScore + " where player_id = 123 and game_id = 2");
+    }
+
+    public void Query(string q){
+        string conn_str = "URI=file:"+ Application.dataPath + "/Plugins/game_db.s3db";
+        IDbConnection dbConnection = new SqliteConnection(conn_str);
+
+        dbConnection.Open();
+        IDbCommand dbCommand = dbConnection.CreateCommand();
+        dbCommand.CommandText = q;
+        IDataReader reader = dbCommand.ExecuteReader();        
+        
+        // while (reader.Read())
+        // {         
+        //     Debug.Log(reader[0]);
+        // }
+    }
+}

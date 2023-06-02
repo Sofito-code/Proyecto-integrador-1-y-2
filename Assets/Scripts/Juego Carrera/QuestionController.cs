@@ -49,6 +49,8 @@ public class QuestionController : MonoBehaviour
     private static bool gameisPaused = false;
     private Coroutine scoreC;
 
+    private carrera carreraDB = new carrera();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -185,6 +187,7 @@ public class QuestionController : MonoBehaviour
         FinalScoring = (scoring + bonusScore);
         gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
             "TOTAL: " + FinalScoring;
+        carreraDB.updateScore(FinalScoring);//agregamos el update en la base de datos
         gameOverCanvas.SetActive(true);
         playing = false;
     }
