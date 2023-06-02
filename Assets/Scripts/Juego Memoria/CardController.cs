@@ -47,7 +47,7 @@ public class CardController : MonoBehaviour
     private float temp = 0f;
     private string textTime = "00:00";    
 
-    private memoria memoriaDB = new memoria();
+    private Memoria memoriaDB = new Memoria();
 
     void Start()
     {
@@ -81,7 +81,6 @@ public class CardController : MonoBehaviour
         gameisPaused = false;
         playing = true;
         UploadUI();
-        //Eliminar cartas
         cards.Clear();
         int children = cardsParent.childCount;
         for (int i = 0; i < children; ++i)

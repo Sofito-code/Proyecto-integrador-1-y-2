@@ -914,8 +914,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Dise\xF1adores \nCamila Ramirez\nRicky Ord\xF3\xF1ez\nJohan Sebasti\xE1n
-    G\xF3mez \n\nProgramadores\nSofia Vanegas\nDaniel Tabares\nJhonier Jim\xE9nez\nMateo
-    Rivera"
+    G\xF3mez \n\nProgramadores\nSofia Vanegas\nDaniel Tabares"
 --- !u!222 &1645301873
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -4,19 +4,8 @@ using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
 
-public class memoria : MonoBehaviour
+public class Memoria 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void updateScore(int newScore){
         Query("UPDATE Puntajes SET score = score + " + newScore + " where player_id = 123 and game_id = 1");
@@ -30,10 +19,5 @@ public class memoria : MonoBehaviour
         IDbCommand dbCommand = dbConnection.CreateCommand();
         dbCommand.CommandText = q;
         IDataReader reader = dbCommand.ExecuteReader();        
-        
-        // while (reader.Read())
-        // {         
-        //     Debug.Log(reader[0]);
-        // }
     }
 }

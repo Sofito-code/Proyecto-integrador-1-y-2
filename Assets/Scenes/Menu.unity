@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.79056215, g: 0.7715366, b: 0.89744425, a: 1}
+  m_IndirectSpecularColor: {r: 0.7905796, g: 0.7715285, b: 0.89751714, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -400,6 +400,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -32
       objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494401, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_Name
+      value: CreditosButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7025808519623188866}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonOptions
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808518355494403, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7025808518381461553, guid: 1e4273e2f35f5c3479e04411cb55d67d,
         type: 3}
       propertyPath: m_Name
@@ -516,6 +556,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 76588ad40cfb23c40be38afee1e6fd9d,
         type: 3}
+    - target: {fileID: 7025808520163320728, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025808520205699711, guid: 1e4273e2f35f5c3479e04411cb55d67d,
+        type: 3}
+      propertyPath: m_text
+      value: OPCIONES
+      objectReference: {fileID: 0}
     - target: {fileID: 7025808520373732002, guid: 1e4273e2f35f5c3479e04411cb55d67d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

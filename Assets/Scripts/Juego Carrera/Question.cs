@@ -9,8 +9,8 @@ public class Question : MonoBehaviour
     public GameObject title;
     public GameObject answer1;
     public GameObject answer2;
-    public string rightAnswer;
-    public string id;
+    public string rightAnswer { set; get; }
+    public string id { set; get; }
     public bool isChoseCorrect { set; get; } = false;
     public bool answered { set; get; } = false;
 

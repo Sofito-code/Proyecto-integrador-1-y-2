@@ -6,10 +6,10 @@ using System.Data;
 using UnityEngine.UI;
 using TMPro;
 
-public class progreso : MonoBehaviour
+public class Progreso : MonoBehaviour
 {
 
-    public static progreso instance;
+    public static Progreso instance;
     public TextMeshProUGUI puntajeMemoria;
     public TextMeshProUGUI puntajeRunner;
     public TextMeshProUGUI levelMemoria;
@@ -19,8 +19,6 @@ public class progreso : MonoBehaviour
     private void Awake(){
         instance = this;
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         IDataReader reader = Query("SELECT score, level FROM jugadores, puntajes where jugadores.player_id = puntajes.player_id");        
@@ -33,12 +31,6 @@ public class progreso : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public IDataReader Query(string q){
         string conn_str = "URI=file:"+ Application.dataPath + "/Plugins/game_db.s3db";
         IDbConnection dbConnection = new SqliteConnection(conn_str);
@@ -48,10 +40,5 @@ public class progreso : MonoBehaviour
         dbCommand.CommandText = q;
         IDataReader reader = dbCommand.ExecuteReader();
         return reader;
-        
-        // while (reader.Read())
-        // {         
-        //     Debug.Log(reader[0]);
-        // }
     }
 }

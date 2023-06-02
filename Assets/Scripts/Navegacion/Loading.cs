@@ -20,17 +20,14 @@ public class Loading : MonoBehaviour
 
     IEnumerator MakeTheLoad(int level)
     {
-        //Esta linea se puede eliminar para que no retrase el juego
-        //yield return new WaitForSeconds(2.5f);
-
         AsyncOperation operation = SceneManager.LoadSceneAsync(level);
 
         PantallaDeCarga.SetActive(true);
         while (!operation.isDone)
         {
-            float Progreso = Mathf.Clamp01(operation.progress / .9f);            
-            Slider.value = Progreso; 
-            tmp.text = (Progreso * 100) + "%";           
+            float progreso = Mathf.Clamp01(operation.progress / .9f);            
+            Slider.value = progreso; 
+            tmp.text = (progreso * 100) + "%";           
             yield return null;
         }
     }

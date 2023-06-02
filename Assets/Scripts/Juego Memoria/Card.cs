@@ -46,8 +46,6 @@ public class Card : MonoBehaviour, IPointerClickHandler
             showing = true;
             info.SetActive(true);
             GetComponent<Image>().sprite = spriteShown;
-            
-            //Invoke("HideCard", delay);
             controller.GetComponent<CardController>().onCardClick(this);
         }
     }
