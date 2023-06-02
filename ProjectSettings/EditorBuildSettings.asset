@@ -23,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Juego Carrera.unity
     guid: 83d0e52a37007af4da61dd5f5640604b
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2f9c1ae80e69d0c43b3fc16293c52fda
+  - enabled: 1
+    path: Assets/Scenes/Progress.unity
+    guid: 56c18cc782627184b84d50b6581ffc20
+  - enabled: 1
+    path: Assets/Scenes/Opciones.unity
+    guid: 736ae1a90129b724e80f73813b2ba2b8
+  - enabled: 1
+    path: Assets/Scenes/Collection.unity
+    guid: f959fe61a62befd44ada51ec74b5136f
   m_configObjects: {}

@@ -21,12 +21,6 @@ public class SQliteDB : MonoBehaviour
         Query("SELECT player_name FROM jugadores");        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Query(string q){
         string conn_str = "URI=file:"+ Application.dataPath + "/Plugins/game_db.s3db";
         IDbConnection dbConnection = new SqliteConnection(conn_str);

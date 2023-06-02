@@ -2950,6 +2950,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 342315732}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &807949549
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807949546}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &822748193
 GameObject:
   m_ObjectHideFlags: 0
@@ -6083,6 +6099,12 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3841686061889533460, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_Text
+      value: Podras moverte hacia los lados conlas fechas del teclado o con "A" y
+        "D".
+      objectReference: {fileID: 0}
     - target: {fileID: 3841686062212373048, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_IsActive
@@ -6117,6 +6139,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062502920928, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062502920928, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062502920928, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686062502920928, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 3841686062875533785, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
@@ -6262,12 +6304,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 541988982}
+      objectReference: {fileID: 541988985}
     - target: {fileID: 3841686063458428396, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ReloadGame
       objectReference: {fileID: 0}
+    - target: {fileID: 3841686063458428396, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestionController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841686063458428397, guid: 618ea4125df23c347819fc3f7c8adbb1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c975010d7ffea942829ec747d24e146,
+        type: 3}
     - target: {fileID: 3841686063506860824, guid: 618ea4125df23c347819fc3f7c8adbb1,
         type: 3}
       propertyPath: m_text

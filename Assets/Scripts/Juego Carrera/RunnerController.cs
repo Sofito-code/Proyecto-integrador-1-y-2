@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunnerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     public GameObject player;
     public Transform[] rail1;
     public Transform[] rail2;
@@ -14,9 +14,6 @@ public class RunnerController : MonoBehaviour
     public float velRotacion;
     private int point = 0;
     public Coroutine spawnCoroutine;
-
-
-    //private bool isRunning = true;
 
     void Start()
     {

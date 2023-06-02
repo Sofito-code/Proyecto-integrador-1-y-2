@@ -93,7 +93,6 @@ public class conducta : MonoBehaviour
                 
                 ani.SetBool("attack", true);
                 atacando = true;
-                //print("aqui para imprimir el mensaje");
 
                 dialogo.SetActive(true);
                

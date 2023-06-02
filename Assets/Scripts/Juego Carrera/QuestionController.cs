@@ -10,7 +10,7 @@ public class QuestionController : MonoBehaviour
 {
     private float[,] coordQuestions = new float[12, 3]
     {
-        { 30.12f, 40.04f, 0f }, //
+        { 30.12f, 40.04f, 0f }, 
         { 0f, 40.04f, 0f },
         { -30.12f, 40.04f, 0f },
         { -65.323f, 26.01f, -60.628f },
@@ -49,7 +49,7 @@ public class QuestionController : MonoBehaviour
     private static bool gameisPaused = false;
     private Coroutine scoreC;
 
-    private carrera carreraDB = new carrera();
+    private Carrera carreraDB = new Carrera();
 
     // Start is called before the first frame update
     void Start()
@@ -125,6 +125,7 @@ public class QuestionController : MonoBehaviour
 
     IEnumerator Score()
     {
+        
         streakCounter = 0;
         bool isStreak = false;
         int wAnswers = 0;
@@ -135,6 +136,7 @@ public class QuestionController : MonoBehaviour
         yield return new WaitForSeconds(Time.deltaTime);
         for (int i = 0; i < modules.Count; i++)
         {
+            
             if (modules[i].GetComponent<Question>().answered)
             {
                 qCheck += 1;
@@ -147,6 +149,7 @@ public class QuestionController : MonoBehaviour
                     isStreak = true;
                     streakCounter += 1;
                     success += 1;
+                    
                 }
                 else
                 {
@@ -177,7 +180,6 @@ public class QuestionController : MonoBehaviour
 
     public void GameOver()
     {
-        //cardsParentObject.SetActive(false);
         gameInfoSup.SetActive(false);
         gameInfoInf.SetActive(false);
         gameOverCanvas.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
@@ -194,7 +196,6 @@ public class QuestionController : MonoBehaviour
 
     public void ReloadGame()
     {
-        //set en cero todo
         successes = 0;
         scoring = 0;
         bonusScore = 0;
@@ -214,7 +215,7 @@ public class QuestionController : MonoBehaviour
         player.transform.position = new Vector3(63.9f, 0.2818546f, 34.5f);
         player.transform.rotation = Quaternion.Euler(0, -90, 0);
         this.GetComponent<RunnerController>().StopSpawn();
-        //Eliminar cartas
+
         modules.Clear();
         for (int i = 0; i < questionsParent.childCount; ++i)
             Destroy(questionsParent.GetChild(i).gameObject);
