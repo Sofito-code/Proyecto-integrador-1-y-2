@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3874032004762136872}
-  - component: {fileID: 3874032004762136878}
-  - component: {fileID: 3874032004762136879}
-  - component: {fileID: 3874032004762136874}
   - component: {fileID: 3874032004762136875}
   m_Layer: 0
   m_Name: Jugador
@@ -36,59 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3874032004762136878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3874032004762136852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"velocidad","value":{"$content":10.0,"$type":"System.Single"},"$version":"A"},{"name":"velRotacion","value":{"$content":15.0,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &3874032004762136879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3874032004762136852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 6d74cfe1f24cdaa458f21305e221a222, type: 2}
---- !u!195 &3874032004762136874
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3874032004762136852}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.2
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!65 &3874032004762136875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -144,8 +88,6 @@ GameObject:
   - component: {fileID: 3874032005891601866}
   - component: {fileID: 3874032005891601867}
   - component: {fileID: 3874032005891602996}
-  - component: {fileID: 3874032005891601864}
-  - component: {fileID: 3874032005891601865}
   - component: {fileID: 1571943387}
   - component: {fileID: 1571943388}
   m_Layer: 1
@@ -220,40 +162,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3874032005891602997}
   m_Enabled: 1
---- !u!114 &3874032005891601864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3874032005891602997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"terceraPersonaCamera","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"pivoteTransform","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"playerTranslation","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences:
-    - {fileID: 3874032005891602997}
-    - {fileID: 3874032005776752262}
-    - {fileID: 3874032004762136872}
---- !u!114 &3874032005891601865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3874032005891602997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
-    _objectReferences:
-    - {fileID: 11400000, guid: 3d07c5fc973bd8145997d37d50f0a9f6, type: 2}
 --- !u!114 &1571943387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,10 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc016c4a25ca7c542841c7289a0143ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
-  rotacion: 200
-  x: 0
-  y: 0
 --- !u!1001 &3874032005500473706
 PrefabInstance:
   m_ObjectHideFlags: 0
