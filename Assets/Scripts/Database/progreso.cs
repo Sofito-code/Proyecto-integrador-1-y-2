@@ -21,7 +21,7 @@ public class Progreso : MonoBehaviour
     }
     void Start()
     {
-        IDataReader reader = Query("SELECT score, level FROM jugadores, puntajes where jugadores.player_id = puntajes.player_id");        
+        IDataReader reader = Query("SELECT score, level FROM jugadores, puntajes where jugadores.player_id = puntajes.player_id");                
         reader.Read();
         puntajeMemoria.text = "Puntaje Acumulado: " + reader[0];
         levelMemoria.text = "Nivel: " + reader[1];
@@ -34,7 +34,6 @@ public class Progreso : MonoBehaviour
     public IDataReader Query(string q){
         string conn_str = "URI=file:"+ Application.dataPath + "/Plugins/game_db.s3db";
         IDbConnection dbConnection = new SqliteConnection(conn_str);
-
         dbConnection.Open();
         IDbCommand dbCommand = dbConnection.CreateCommand();
         dbCommand.CommandText = q;

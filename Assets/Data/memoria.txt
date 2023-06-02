@@ -8,3 +8,23 @@
 1|108|¿Quién pintó “la última cena”?|Leonardo DaVinci.|4
 1|109|¿Quién es el enemigo más famoso de Batman?|El Joker.|5
 1|110|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson.|5
+2|201|¿Quién inventó la bombilla?|Thomas Edison.|0
+2|202|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|0
+2|203|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos.|1
+2|204|¿Cuánto vale el número pi?|3.1416|1
+2|205|¿Cuál es el océano más grande del mundo?|El océano Pacífico.|2
+2|206|¿Dónde está la Casa Blanca?|En Washington D.C.|3
+2|207|¿Quién pintó 'Las Meninas'?|Velázquez.|4
+2|208|¿Quién pintó “la última cena”?|Leonardo DaVinci.|4
+2|209|¿Quién es el enemigo más famoso de Batman?|El Joker.|5
+2|210|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson.|5
+3|301|¿Quién inventó la bombilla?|Thomas Edison.|0
+3|302|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|0
+3|303|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos.|1
+3|304|¿Cuánto vale el número pi?|3.1416|1
+3|305|¿Cuál es el océano más grande del mundo?|El océano Pacífico.|2
+3|306|¿Dónde está la Casa Blanca?|En Washington D.C.|3
+3|307|¿Quién pintó 'Las Meninas'?|Velázquez.|4
+3|308|¿Quién pintó “la última cena”?|Leonardo DaVinci.|4
+3|309|¿Quién es el enemigo más famoso de Batman?|El Joker.|5
+3|310|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson.|5
