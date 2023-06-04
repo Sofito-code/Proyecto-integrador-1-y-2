@@ -264,8 +264,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.7835584, y: 3.0176747, z: 0.29136184}
-  m_Center: {x: -4.818066, y: 0.20872489, z: -0.00000032645303}
+  m_Size: {x: 7.7835584, y: 3.0176747, z: 0.47271347}
+  m_Center: {x: -4.818066, y: 0.20872489, z: 0.09067552}
 --- !u!114 &2362054958028754245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,8 +502,6 @@ MonoBehaviour:
   title: {fileID: 6605069324608728807}
   answer1: {fileID: 6605069325713837132}
   answer2: {fileID: 6605069324115317152}
-  rightAnswer: 
-  id: 
 --- !u!65 &1862013999128465498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -876,8 +874,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.825275, y: 3.0004773, z: 0.28084832}
-  m_Center: {x: -4.7674685, y: 0.19689752, z: -0.0000026129194}
+  m_Size: {x: 7.8252754, y: 3.0004773, z: 0.3784911}
+  m_Center: {x: -4.7674685, y: 0.19689752, z: 0.048818786}
 --- !u!114 &4605472974996993721
 MonoBehaviour:
   m_ObjectHideFlags: 0

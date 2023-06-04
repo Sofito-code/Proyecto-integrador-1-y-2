@@ -63,14 +63,25 @@ public class DBManagement : MonoBehaviour
         );
         reader.Read();
         int score = Int32.Parse(reader[0] + "");
-
+        CloseConn();
         int limit = 2000;
-        if (score >= (limit*3)) { 
-            Mutation("UPDATE Puntajes SET level = 3 WHERE 123 = puntajes.player_id AND game_id = 1");
-        }else if(score >= limit){
-            Mutation("UPDATE Puntajes SET level = 2 WHERE 123 = puntajes.player_id AND game_id = 1");
-        }else{
-            Mutation("UPDATE Puntajes SET level = 1 WHERE 123 = puntajes.player_id AND game_id = 1");
+        if (score >= (limit * 3))
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 3 WHERE 123 = puntajes.player_id AND game_id = 1"
+            );
+        }
+        else if (score >= limit)
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 2 WHERE 123 = puntajes.player_id AND game_id = 1"
+            );
+        }
+        else
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 1 WHERE 123 = puntajes.player_id AND game_id = 1"
+            );
         }
     }
 
@@ -83,17 +94,32 @@ public class DBManagement : MonoBehaviour
         int score = Int32.Parse(reader[0] + "");
         CloseConn();
         int limit = 1600;
-        if (score >= (limit*3)) { 
-            Mutation("UPDATE Puntajes SET level = 3 WHERE 123 = puntajes.player_id AND game_id = 2");
-        }else if(score >= limit){
-            Mutation("UPDATE Puntajes SET level = 2 WHERE 123 = puntajes.player_id AND game_id = 2");
-        }else{
-            Mutation("UPDATE Puntajes SET level = 1 WHERE 123 = puntajes.player_id AND game_id = 2");
+        if (score >= (limit * 3))
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 3 WHERE 123 = puntajes.player_id AND game_id = 2"
+            );
+        }
+        else if (score >= limit)
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 2 WHERE 123 = puntajes.player_id AND game_id = 2"
+            );
+        }
+        else
+        {
+            Mutation(
+                "UPDATE Puntajes SET level = 1 WHERE 123 = puntajes.player_id AND game_id = 2"
+            );
         }
     }
 
     public void CloseConn()
     {
         dbConnection.Close();
+    }
+
+    public void QuerySetPieces(int new_available_pieces){
+        Mutation("UPDATE Jugadores SET available_pieces = available_pieces + " + new_available_pieces + " where player_id = 123");
     }
 }

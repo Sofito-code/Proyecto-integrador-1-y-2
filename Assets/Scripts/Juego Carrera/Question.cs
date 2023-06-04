@@ -19,7 +19,8 @@ public class Question : MonoBehaviour
     {       
         answered = true;
         string a1 = answer1.GetComponent<Answer>().chosenOne;
-        if (a1.Equals(rightAnswer))
+        string a2 = answer2.GetComponent<Answer>().chosenOne;
+        if (a1.Equals(rightAnswer)|| a2.Equals(rightAnswer))
         {
             isChoseCorrect = true;
         }
