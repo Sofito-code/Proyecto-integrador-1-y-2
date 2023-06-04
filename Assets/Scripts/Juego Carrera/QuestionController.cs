@@ -40,14 +40,14 @@ public class QuestionController : MonoBehaviour
     private int scoring = 0;
     private int bonusScore = 0;
     private int rate = 0;
-    private int questionCheck = 0;
-    private int wrongAnswers = 0;
+    public int questionCheck = 0;
+    public int wrongAnswers = 0;
     private int streakCounter = 0;
     private List<QuestionInfo> questions;
     private List<GameObject> modules = new List<GameObject>();
-    private bool playing = false;
+    public bool playing = false;
     private static bool gameisPaused = false;
-    private Coroutine scoreC;
+    public Coroutine scoreC;
 
     private Carrera carreraDB = new Carrera();
 
@@ -132,8 +132,7 @@ public class QuestionController : MonoBehaviour
     }
 
     IEnumerator Score()
-    {        
-
+    {
         streakCounter = 0;
         bool isStreak = false;
         int wAnswers = 0;
@@ -198,9 +197,12 @@ public class QuestionController : MonoBehaviour
         gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
             "TOTAL: " + FinalScoring;
         carreraDB.updateScore(FinalScoring);//agregamos el update en la base de datos
+        int pieces = (FinalScoring) / 135;
+        this.GetComponent<DBManagement>().QuerySetRunnerLevel();
+        this.GetComponent<DBManagement>().QuerySetPieces(pieces);
         gameOverCanvas.SetActive(true);
         playing = false;
-        this.GetComponent<DBManagement>().QuerySetRunnerLevel();
+        
     }
 
     public void ReloadGame()

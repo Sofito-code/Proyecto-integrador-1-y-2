@@ -6,7 +6,7 @@
 1|106|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
 1|107|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
 1|108|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
-1|109|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
+1|109|¿Quién es el enemigo más famoso de Batman?|El Joker|Los padres
 1|110|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
 1|111|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
 1|112|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela

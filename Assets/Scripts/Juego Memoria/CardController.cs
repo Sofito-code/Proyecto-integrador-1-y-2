@@ -262,6 +262,8 @@ public class CardController : MonoBehaviour
         bonusGameOver.text = "BONUS: " + bonusScorePlayer;
         totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
         memoriaDB.updateScore(scorePlayer + bonusScorePlayer); //actualizar DB
+        int pieces = (scorePlayer + bonusScorePlayer) / 135;
+        this.GetComponent<DBManagement>().QuerySetPieces(pieces);
         gameOver.SetActive(true); 
         playing = false;
     }
