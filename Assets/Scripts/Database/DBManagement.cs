@@ -119,7 +119,89 @@ public class DBManagement : MonoBehaviour
         dbConnection.Close();
     }
 
-    public void QuerySetPieces(int new_available_pieces){
-        Mutation("UPDATE Jugadores SET available_pieces = available_pieces + " + new_available_pieces + " where player_id = 123");
+    public void QuerySetPieces(int new_available_pieces)
+    {
+        Mutation(
+            "UPDATE Jugadores SET available_pieces = available_pieces + "
+                + new_available_pieces
+                + " where player_id = 123"
+        );
+    }
+
+    public void QuerySetPiecesToRemainder(int pieces)
+    {
+        Mutation("UPDATE Jugadores SET available_pieces = " + pieces + " where player_id = 123");
+    }
+
+    public int QueryGetPieces()
+    {
+        IDataReader reader = QueryMany(
+            "SELECT available_pieces FROM jugadores WHERE jugadores.player_id = 123"
+        );
+        reader.Read();
+        return Int32.Parse(reader[0] + "");
+    }
+
+    public List<int> QueryGetPaints()
+    {
+        IDataReader reader = QueryMany(
+            "SELECT COUNT(painting_id) FROM Cuadros WHERE Cuadros.pieces_amount = 15"
+        );
+        reader.Read();
+        int count = Int32.Parse(reader[0] + "");
+        CloseConn();
+        IDataReader paintsReader = QueryMany(
+            "SELECT painting_id FROM Cuadros WHERE Cuadros.pieces_amount = 15"
+        );
+        List<int> paints = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            paintsReader.Read();
+            paints.Add(Int32.Parse(paintsReader[0] + ""));
+        }
+        Shuffle(paints);
+        return paints;
+    }
+
+    public List<int> QueryGetPaintsAvilable()
+    {
+        IDataReader reader = QueryMany(
+            "SELECT COUNT(painting_id) FROM Cuadros_obtenidos"
+        );
+        reader.Read();
+        int count = Int32.Parse(reader[0] + "");
+        CloseConn();
+        IDataReader paintsReader = QueryMany(
+            "SELECT painting_id FROM Cuadros_obtenidos"
+        );
+        List<int> paints = new List<int>();
+        for (int i = 0; i < count; i++)
+        {
+            paintsReader.Read();
+            paints.Add(Int32.Parse(paintsReader[0] + ""));
+        }
+        Shuffle(paints);
+        return paints;
+    }
+
+
+    public void Shuffle(List<int> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            int value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+    }
+
+    public void QueryBuyPaint(int id)
+    {
+        Mutation("UPDATE Cuadros SET pieces_amount = 0 where painting_id = " + id);
+        Mutation("INSERT INTO Cuadros_obtenidos (player_id, painting_id) VALUES (123, " + id + ")");
     }
 }
