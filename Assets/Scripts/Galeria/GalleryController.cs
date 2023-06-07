@@ -10,6 +10,7 @@ public class GalleryController : MonoBehaviour
     void Start()
     {
         posts = this.GetComponent<DBManagement>().QueryGetPaintsAvilable();
+        this.GetComponent<DBManagement>().CloseConn();
         for (int i = 0; i < posts.Count; i++)
         {
             int id = posts[i];

@@ -204,4 +204,29 @@ public class DBManagement : MonoBehaviour
         Mutation("UPDATE Cuadros SET pieces_amount = 0 where painting_id = " + id);
         Mutation("INSERT INTO Cuadros_obtenidos (player_id, painting_id) VALUES (123, " + id + ")");
     }
+
+    public int QueryGetCountPaintsAvilable(string table)
+    {
+        IDataReader reader = QueryMany(
+            "SELECT COUNT(painting_id) FROM " + table
+        );
+        reader.Read();
+        int count = Int32.Parse(reader[0] + "");
+        return count;
+    }
+
+    public void QuerySetFinal()
+    {
+        Mutation("UPDATE Cuadros SET pieces_amount = 0 where painting_id = 11");
+    }
+
+    public int QueryGetFinal()
+    {
+        IDataReader reader = QueryMany(
+            "SELECT pieces_amount FROM Cuadros where painting_id = 11"
+        );
+        reader.Read();
+        int result = Int32.Parse(reader[0] + "");
+        return result;
+    }
 }

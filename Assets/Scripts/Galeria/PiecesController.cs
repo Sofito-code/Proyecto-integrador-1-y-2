@@ -27,19 +27,20 @@ public class PiecesController : MonoBehaviour
     {
         if (setPiece)
         {
-            int numberPieces = piecesDB / 15;
+            int numberPieces = (piecesDB / 15) > 10 ? 10: (piecesDB / 15);
             int remainder = piecesDB % 15;
             List<int> paints = this.GetComponent<DBManagement>().QueryGetPaints();
             this.GetComponent<DBManagement>().CloseConn();
-            for (int i = 0; i < numberPieces; i++)
-            {
-                this.GetComponent<DBManagement>().QueryBuyPaint(paints[i]);
+            if(paints.Count > 0){
+                for (int i = 0; i < numberPieces; i++)
+                {
+                    this.GetComponent<DBManagement>().QueryBuyPaint(paints[i]);
+                }
+                this.GetComponent<DBManagement>().QuerySetPiecesToRemainder(remainder);
                 this.GetComponent<DBManagement>().CloseConn();
+                notification.gameObject.SetActive(true);
+                pieces.text = remainder + "";
             }
-            this.GetComponent<DBManagement>().QuerySetPiecesToRemainder(remainder);
-            this.GetComponent<DBManagement>().CloseConn();
-            notification.gameObject.SetActive(true);
-            pieces.text = remainder + "";
             setPiece = false;
         }
     }

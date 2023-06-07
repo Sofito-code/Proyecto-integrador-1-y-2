@@ -38,6 +38,11 @@ public class MenuControl : MonoBehaviour
         SceneManager.LoadScene(9);
     }
 
+    public void GoToFinalScene()
+    {
+        SceneManager.LoadScene(10);
+    }
+
     public void buttonExit()
     {
         Application.Quit();

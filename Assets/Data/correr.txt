@@ -1,36 +1,54 @@
-1|101|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
-1|102|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
-1|103|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
-1|104|¿Cuánto vale el número pi?|3.1416|206 huesos|
-1|105|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
-1|106|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
-1|107|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
-1|108|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
-1|109|¿Quién es el enemigo más famoso de Batman?|El Joker|Los padres
-1|110|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
-1|111|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
-1|112|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
-2|201|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
-2|202|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
-2|203|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
-2|204|¿Cuánto vale el número pi?|3.1416|206 huesos|
-2|205|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
-2|206|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
-2|207|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
-2|208|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
-2|209|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
-2|210|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
-2|211|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
-2|212|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
-3|301|¿Quién inventó la bombilla?|Thomas Edison|Emma Watson
-3|302|¿En qué país se usó la primera bomba atómica?|En Japón (Hiroshima)|En Washington D.C
-3|303|¿Cuántos huesos hay en el cuerpo humano adulto?|206 huesos|3.1416
-3|304|¿Cuánto vale el número pi?|3.1416|206 huesos|
-3|305|¿Cuál es el océano más grande del mundo?|El océano Pacífico|En Japón (Hiroshima)
-3|306|¿Dónde está la Casa Blanca?|En Washington D.C|En Japón (Hiroshima)
-3|307|¿Quién pintó 'Las Meninas'?|Velázquez|Leonardo DaVinci
-3|308|¿Quién pintó “la última cena”?|Leonardo DaVinci|Velázquez
-3|309|¿Quién es el enemigo más famoso de Batman?|El Joker|Los papdres
-3|310|¿Quién interpretó a Hermione Granger en 'Harry Potter'?|Emma Watson|Billy Jean
-3|311|¿Quién interpretó a Ron en 'Harry Potter'?|Novio de Emma Watson|Billy Jean
-3|312|¿Quién es el amigo más famoso de Batman?|Robin|Gatubela
+1|101|¿La acreditación es necesaria para que una institución siga funcionando?|NO|SI
+1|102|¿El registro calificado es lo mismo que la acreditación?|NO|SI
+1|103|¿La acreditación se realiza por institución y por programa académico?|SI|NO
+1|104|¿Un programa de posgrado puede acreditarse?|SI|NO
+1|105|¿El tiempo por el cual se otorga la acreditación es entre 4 a 10 años?|SI|NO
+1|106|¿La acreditación es válida nacional e internacional?|SI|NO
+1|107|¿El registro calificado es obligatorio?|SI|NO
+1|108|¿El CNA es el Consejo Nombrado para Asesoría de Acreditación|SI|NO
+1|109|¿Los pares académicos deben visitar la instutucion educativa?|SI|NO
+1|110|¿el SNA es el Sistema Nacional de Acreditación?|SI|NO
+1|111|¿Es importante para un estudiante, que su programa este Acreditado?|SI|NO
+1|112|¿Debo estudiar en un programa sin registro calificado?|SI|NO
+1|113|¿Pienso estudiar mi posgrado en el exterior, mi programa debe tener acreditación?|SI|NO
+1|114|¿La autoevaluación es un proceso de medición y reflexión sobre la calidad?|SI|NO
+1|115|¿la autoevaluación identifica fortalezas y debilidades?|SI|NO
+1|116|¿La autoevaluación es necesaria para la acreditación?|SI|NO
+1|117|¿En la autoevaluación se revisa los espacios físicos?|SI|NO
+1|118|¿En la autoevaluación se revisa los espacios deportivos?|SI|NO
+2|201|Condiciones iniciales|Conjunto de cualidades y requisitos que deben cumplir las instituciones para acreditarse|Evidencias iniciales del proceso de Autoevaluación
+2|202|Características de evaluación son, según el acuerdo 02 de 2020|factores y aspectos|Temas y preguntas
+2|203|Acuerdo base para la evaluación de programas presenciales|Acuerdo 02 de 2020|Acuerdo 05 de 2021
+2|204|Acuerdo base para la evaluación de programas virtuales|Acuerdo 02 de 2020|Acuerdo 06 de 2021
+2|205|Autoridad Nacional de acreditación|Consejo Nacional de Acreditación – CNA|Ministerio de Educación Nacional MINEDU
+2|206|Autoevaluación|Proceso que permiten a la institución la identificación de fortalezas y aspectos por mejorar|Proceso que orienta la implementación de planes de mejoramiento.
+2|207|Plan de mejoramiento|Conjunto de acciones organizadas para abordar las debilidades|conjunto de resultados de la evaluación
+2|208|¿Por qué acreditar la institución?|ser coherente con lo que es y se quiere ser|Para crecer
+2|209|¿la calidad en educación superior, es?|nivel de correspondencia con lo esperado|goodwill de la institución
+2|210|La cultura en la que se potencia las óptimas cualidades|Acuerdo superior 430 de 2014|Política de calidad
+2|211|¿La calidad se entiende cómo?|Un camino|un conjunto de prácticas cotidianas.
+2|212|¿La acreditación?|Vigilancia del estado|Compromiso Institucional
+2|213|Institución acreditada por 10 años, implica tener|60% o más de programas Acreditados|Autoevaluación Institucional.
+2|214|Para acreditar un programa se requiere tener|ocho años de continuidad de matrícula|maestría y doctorado asociado
+2|215|La autoevaluación implica revisar los altos niveles académicos|Investigativos|académicos
+2|216|La autoevaluación involucra|docentes|empresarios
+2|217|CNA entrega para la autoevaluación|guías|lineamientos
+2|218|Como estudiante debo en la autoevaluación|Responder las encuestas|leer los documentos.
+3|301|¿En la autoevaluación se revisa los laboratorios?|SI|NO
+3|302|¿En la autoevaluación se revisa los procesos administrativos?|SI|NO
+3|303|¿En la autoevaluación se revisa los contenidos académicos de los cursos?|SI|NO
+3|304|¿En la autoevaluación participan los estudiantes?|SI|NO
+3|305|¿La autoevaluación genera un plan de mejoramiento?|SI|NO
+3|306|EL MEN es un acreditador internacional|NO|SI
+3|307|La autoevaluación debe ser|Permanente|Transparente
+3|308|Los pares académicos|emiten juicio de calidad|son externos a la institución
+3|309|La socialización y la capacitación las realiza|EL CNA|LA institución  
+3|310|En la autoevaluación de un programa se reflexiona sobre|la relación con la industria|el impacto en la sociedad
+3|311|¿Es importante para un estudiante, que su programa este Acreditado?|SI|NO
+3|312|¿Debo estudiar en un programa sin registro calificado?|SI|NO
+3|313|¿Pienso estudiar mi posgrado en el exterior, mi programa debe tener acreditación?|SI|NO
+3|314|¿La autoevaluación es un proceso de medición y reflexión sobre la calidad?|SI|NO
+3|315|La autoevaluación implica revisar los altos niveles académicos|Investigativos|académicos
+3|316|La autoevaluación involucra|docentes|empresarios
+3|317|CNA entrega para la autoevaluación|guías|lineamientos
+3|318|Como estudiante debo en la autoevaluación|Responder las encuestas|leer los documentos.
