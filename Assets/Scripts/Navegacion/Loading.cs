@@ -30,5 +30,6 @@ public class Loading : MonoBehaviour
             tmp.text = (progreso * 100) + "%";           
             yield return null;
         }
+        //Parar coroutine??
     }
 }

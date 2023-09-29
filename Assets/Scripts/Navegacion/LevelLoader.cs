@@ -10,6 +10,6 @@ public static class LevelLoader
     public static void LoadLevel(int levelName)
     {
         nextLevel = levelName;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);// Escena de pantalla de carga
     }
 }
