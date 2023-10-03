@@ -50,11 +50,18 @@ public class CardController : MonoBehaviour
 
     private Memoria memoriaDB = new Memoria();
 
+    //Card DAO for accessing to Data by JSON file
+    public CardDAO cardDAO;
+
     void Start()
     {
-        level = this.GetComponent<DBManagement>().QueryCardsLevel();
-        this.GetComponent<DBManagement>().CloseConn();
-        questions = Levels(level);
+        //Estas funcionan temporalmente para probar la feature
+        int tempLevel = 1;
+        questions = Levels(tempLevel.ToString());
+
+        //level = this.GetComponent<DBManagement>().QueryCardsLevel();
+        //this.GetComponent<DBManagement>().CloseConn();
+        //questions = Levels(level);
         levelGame.text = "NIVEL: " + level;
         Create();
     }
@@ -301,9 +308,8 @@ public class CardController : MonoBehaviour
     }
 
     private CardInfo[] UploadData()
-    {
-        string path = "Assets/Data/memoria.txt";
-        string[] text = File.ReadAllLines(path);
+    {       
+        string[] text = cardDAO.Read();
         int infoLength = text.Length;
         CardInfo[] data = new CardInfo[infoLength];
         for (int cont = 0; cont < infoLength; cont++)
