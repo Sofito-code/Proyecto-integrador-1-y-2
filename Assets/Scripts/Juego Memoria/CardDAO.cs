@@ -8,16 +8,16 @@ using System.IO;
 
 public class CardDAO
 {    
-    public CardInfo[] Read()
+    public CardInfo[] ReadQuestionJson()
     {
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
         string text = File.ReadAllText(path);
-        QuestionArray questionArray = JsonUtility.FromJson<QuestionArray>(text);
+        CardArray questionArray = JsonUtility.FromJson<CardArray>(text);
         CardInfo[] cards = questionArray.questions;
         return cards;
     }
 
-    public void Save(){
+    public void SaveQuestionJson(){
         string questionsJson = @"{
         ""questions"":
             [

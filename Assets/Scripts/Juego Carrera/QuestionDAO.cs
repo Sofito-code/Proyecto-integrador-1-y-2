@@ -9,7 +9,7 @@ using System.IO;
 public class QuestionDAO
 {
 
-    public QuestionInfo[] read(){
+    public QuestionInfo[] ReadQuestionJson(){
         string path = Path.Combine(Application.persistentDataPath, "correr.data");
         string text = File.ReadAllText(path);
         QuestionArray questionArray = JsonUtility.FromJson<QuestionArray>(text);
@@ -17,7 +17,7 @@ public class QuestionDAO
         return questions;
     }
 
-    public void Save(){
+    public void SaveQuestionJson(){
         string questionsJson = @"{
         ""questions"":
             [
@@ -401,7 +401,6 @@ public class QuestionDAO
                 }
             ]
         }";
-
         string path = Path.Combine(Application.persistentDataPath, "correr.data");
         File.WriteAllText(path,questionsJson);
     }

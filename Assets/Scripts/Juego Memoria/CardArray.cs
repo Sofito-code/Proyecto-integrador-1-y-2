@@ -4,10 +4,10 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class QuestionArray
+public class CardArray
 {
     public CardInfo[] questions;
-    public QuestionArray(){
+    public CardArray(){
 
     }
 }
