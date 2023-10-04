@@ -51,6 +51,9 @@ public class QuestionController : MonoBehaviour
 
     private Carrera carreraDB = new Carrera();
 
+    //Card DAO for accessing to Data by JSON file
+    public QuestionDAO questionDAO;
+
     // Start is called before the first frame update
     void Start()
     {  
@@ -305,7 +308,11 @@ public class QuestionController : MonoBehaviour
 
     private QuestionInfo[] UploadData()
     {
-        string path = "Assets/Data/correr.txt";
+        questionDAO = new QuestionDAO;
+        questionDAO.save();
+        QuestionInfo[] questions = QuestionDAO.Read();
+        return questions;
+        /*string path = "Assets/Data/correr.txt";
         string[] text = File.ReadAllLines(path);
         int infoLength = text.Length;
         QuestionInfo[] data = new QuestionInfo[infoLength];
@@ -319,6 +326,6 @@ public class QuestionController : MonoBehaviour
             QuestionInfo questionInfoTemp = new QuestionInfo(level, id, question, answer1, answer2);
             data[cont] = questionInfoTemp;
         }
-        return data;
+        return data;*/
     }
 }
