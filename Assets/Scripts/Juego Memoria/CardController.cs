@@ -51,7 +51,7 @@ public class CardController : MonoBehaviour
     private Memoria memoriaDB = new Memoria();
 
     //Card DAO for accessing to Data by JSON file
-    public CardDAO cardDAO;
+    private CardDAO cardDAO;
 
     void Start()
     {
@@ -310,8 +310,8 @@ public class CardController : MonoBehaviour
     private CardInfo[] UploadData()
     {
         cardDAO = new CardDAO();
-        cardDAO.Save(); 
-        CardInfo[] cardsQuestions = cardDAO.Read();
+        cardDAO.SaveQuestionJson(); 
+        CardInfo[] cardsQuestions = cardDAO.ReadQuestionJson();
         return cardsQuestions;
     }
 }
