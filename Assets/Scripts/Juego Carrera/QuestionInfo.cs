@@ -4,12 +4,12 @@ using System;
 
 public class QuestionInfo
 {
-    public string level { get; }
-    public string id { get; }
-    public string question { get; }
-    public string answer1 { set; get; }    
-    public string answer2 { set; get; }
-    public string rightAnswer { get; }
+    public string level;
+    public string id;
+    public string question;
+    public string answer1;    
+    public string answer2;
+    public string rightAnswer;
 
     public QuestionInfo() { }
 
