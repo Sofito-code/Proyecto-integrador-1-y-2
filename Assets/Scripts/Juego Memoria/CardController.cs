@@ -165,7 +165,7 @@ public class CardController : MonoBehaviour
 
     public void Create()
     {
-
+        
         int x = 210;
         for (int i = 0; i < cols; i++)
         {
@@ -308,20 +308,10 @@ public class CardController : MonoBehaviour
     }
 
     private CardInfo[] UploadData()
-    {       
-        string[] text = cardDAO.Read();
-        int infoLength = text.Length;
-        CardInfo[] data = new CardInfo[infoLength];
-        for (int cont = 0; cont < infoLength; cont++)
-        {
-            string level = text[cont].Split('|')[0];
-            string id = text[cont].Split('|')[1];
-            string question = text[cont].Split('|')[2];
-            string answer = text[cont].Split('|')[3];
-            int topic = Int16.Parse(text[cont].Split('|')[4]);
-            CardInfo cardInfoTemp = new CardInfo(level, id, question, answer, topic);
-            data[cont] = cardInfoTemp;
-        }
-        return data;
+    {
+        cardDAO = new CardDAO();
+        cardDAO.Save(); 
+        CardInfo[] cardsQuestions = cardDAO.Read();
+        return cardsQuestions;
     }
 }
