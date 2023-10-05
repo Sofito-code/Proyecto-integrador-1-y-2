@@ -5,16 +5,15 @@ using System;
 [Serializable]
 public class CardInfo
 {
-    public string level;
+    public int level;
     public string id;
     public string question;
     public string answer;
     public int topic;
 
-    public CardInfo() { 
-    }
+    public CardInfo() { }
 
-    public CardInfo(string level, string id, string question, string answer, int topic)
+    public CardInfo(int level, string id, string question, string answer, int topic)
     {
         this.level = level;
         this.id = id;
