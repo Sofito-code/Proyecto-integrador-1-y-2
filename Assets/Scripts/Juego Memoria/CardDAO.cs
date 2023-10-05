@@ -1,13 +1,21 @@
-using System.Net.Mime;
+
 using System.Net;
-using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class CardDAO
+public class CardDAO : MonoBehaviour
 {    
+    [SerializeField]
+    public ModelPuntajesArray puntajesArray;
+
+    [SerializeField]
+    public ModelJugador jugador;
+
+    void Awake() {
+        ReadPuntaje();
+    }
     public CardInfo[] ReadQuestionJson()
     {
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
@@ -228,5 +236,29 @@ public class CardDAO
         }";
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
         File.WriteAllText(path,questionsJson);
+    }
+
+    [ContextMenu("ReadPuntaje")]
+    public void ReadPuntaje(){
+        string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
+        if(File.Exists(path)){
+            string text = File.ReadAllText(path);
+            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+        }
+        else{
+            Debug.Log($"Error: No se pudo leer el puntaje cuardado");
+            puntajesArray.puntajes[0].score = 0;
+        }
+
+        path = Path.Combine(Application.persistentDataPath, "jugador.data");
+        if(File.Exists(path)){
+            string text = File.ReadAllText(path);
+            jugador = JsonUtility.FromJson<ModelJugador>(text);
+        }
+        else{
+            Debug.Log($"Error: No se pudo leer los datos del jugador");
+            jugador.available_pieces = 0;
+        }
+
     }
 }

@@ -39,7 +39,7 @@ public class CardController : MonoBehaviour
     private int successesCards = 0;
     private int scorePlayer = 0;
     private int bonusScorePlayer = 0;
-    private string level;
+    private int level;
     private static bool gameisPaused = false;
 
     private Card displayedCard;
@@ -56,8 +56,10 @@ public class CardController : MonoBehaviour
     void Start()
     {
         //Estas funcionan temporalmente para probar la feature
-        int tempLevel = 1;
-        questions = Levels(tempLevel.ToString());
+        cardDAO = this.GetComponent<CardDAO>();
+        cardDAO.SaveQuestionJson();
+        level = cardDAO.puntajesArray.puntajes[0].level;
+        questions = Levels(level);
 
         //level = this.GetComponent<DBManagement>().QueryCardsLevel();
         //this.GetComponent<DBManagement>().CloseConn();
@@ -268,9 +270,14 @@ public class CardController : MonoBehaviour
         scoreGameOver.text = "PUNTAJE: " + scorePlayer;
         bonusGameOver.text = "BONUS: " + bonusScorePlayer;
         totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
-        memoriaDB.updateScore(scorePlayer + bonusScorePlayer); //actualizar DB
+        
+
+        //memoriaDB.updateScore(scorePlayer + bonusScorePlayer); //actualizar DB
+        cardDAO.puntajesArray.puntajes[0].score += (scorePlayer + bonusScorePlayer);
         int pieces = (scorePlayer + bonusScorePlayer) / 135;
-        this.GetComponent<DBManagement>().QuerySetPieces(pieces);
+
+        //this.GetComponent<DBManagement>().QuerySetPieces(pieces);
+        cardDAO.jugador.available_pieces = pieces;
         gameOver.SetActive(true); 
         playing = false;
     }
@@ -292,13 +299,13 @@ public class CardController : MonoBehaviour
         }  
     }
 
-    private List<CardInfo> Levels(string level)
+    private List<CardInfo> Levels(int level)
     {
         CardInfo[] data = UploadData();
         List<CardInfo> cardList = new List<CardInfo>();
         foreach (CardInfo item in data)
         {
-            if (item.level.Equals(level))
+            if (item.level == level)
             {
                 cardList.Add(item);
             }
@@ -309,8 +316,7 @@ public class CardController : MonoBehaviour
 
     private CardInfo[] UploadData()
     {
-        cardDAO = new CardDAO();
-        cardDAO.SaveQuestionJson(); 
+         
         CardInfo[] cardsQuestions = cardDAO.ReadQuestionJson();
         return cardsQuestions;
     }
