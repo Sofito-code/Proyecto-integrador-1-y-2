@@ -56,6 +56,7 @@ public class CardController : MonoBehaviour
     {
         cardDAO = this.GetComponent<CardDAO>();
         cardDAO.ReadInfo();
+        Debug.Log($"{cardDAO.jugador.available_pieces}");        
         cardDAO.SaveQuestionJson();
         level = cardDAO.puntajesArray.puntajes[0].level;
         questions = Levels(level);
@@ -269,6 +270,7 @@ public class CardController : MonoBehaviour
         cardDAO.SaveCardLevel();
         int pieces = (scorePlayer + bonusScorePlayer) / 135;
         cardDAO.jugador.available_pieces += pieces;
+        cardDAO.SaveJugador();
         gameOver.SetActive(true); 
         playing = false;
     }
