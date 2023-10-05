@@ -13,9 +13,6 @@ public class CardDAO : MonoBehaviour
     [SerializeField]
     public ModelJugador jugador;
 
-    void Awake() {
-        ReadPuntaje();
-    }
     public CardInfo[] ReadQuestionJson()
     {
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
@@ -238,19 +235,26 @@ public class CardDAO : MonoBehaviour
         File.WriteAllText(path,questionsJson);
     }
 
-    [ContextMenu("ReadPuntaje")]
-    public void ReadPuntaje(){
+    [ContextMenu("ReadInfo")]
+    public void ReadInfo(){
+        ReadPuntaje();
+        ReadJugador();
+    }
+
+    private void ReadPuntaje(){
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
         if(File.Exists(path)){
             string text = File.ReadAllText(path);
             puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
         }
         else{
-            Debug.Log($"Error: No se pudo leer el puntaje cuardado");
+            Debug.Log($"Error: No se pudo leer el puntaje guardado");
             puntajesArray.puntajes[0].score = 0;
         }
+    }
 
-        path = Path.Combine(Application.persistentDataPath, "jugador.data");
+    private void ReadJugador(){
+        string path = Path.Combine(Application.persistentDataPath, "jugador.data");
         if(File.Exists(path)){
             string text = File.ReadAllText(path);
             jugador = JsonUtility.FromJson<ModelJugador>(text);
@@ -259,6 +263,27 @@ public class CardDAO : MonoBehaviour
             Debug.Log($"Error: No se pudo leer los datos del jugador");
             jugador.available_pieces = 0;
         }
+    }
 
+    public void SaveCardLevel(){
+        int score = puntajesArray.puntajes[0].score;
+        int limit = 2000;
+        int lvl = 0;    
+        if (score >= (limit * 3))
+        {            
+            lvl = 3;
+        }
+        else if (score >= limit)
+        {            
+            lvl = 2;
+        }
+        else
+        {
+            lvl = 1;            
+        }
+        puntajesArray.puntajes[0].level = lvl;
+        string puntajeJson = JsonUtility.ToJson(puntajesArray);
+        string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
+        File.WriteAllText(path,puntajeJson);
     }
 }
