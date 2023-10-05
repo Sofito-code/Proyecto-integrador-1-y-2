@@ -265,6 +265,12 @@ public class CardDAO : MonoBehaviour
         }
     }
 
+    public void SaveJugador(){
+        string jugadorJson = JsonUtility.ToJson(jugador);
+        string path = Path.Combine(Application.persistentDataPath, "jugador.data");
+        File.WriteAllText(path,jugadorJson);
+    }
+
     public void SaveCardLevel(){
         int score = puntajesArray.puntajes[0].score;
         int limit = 2000;
