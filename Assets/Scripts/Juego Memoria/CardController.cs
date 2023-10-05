@@ -48,22 +48,17 @@ public class CardController : MonoBehaviour
     private float temp = 0f;
     private string textTime = "00:00";    
 
-    private Memoria memoriaDB = new Memoria();
 
     //Card DAO for accessing to Data by JSON file
     private CardDAO cardDAO;
 
     void Start()
     {
-        //Estas funcionan temporalmente para probar la feature
         cardDAO = this.GetComponent<CardDAO>();
+        cardDAO.ReadInfo();
         cardDAO.SaveQuestionJson();
         level = cardDAO.puntajesArray.puntajes[0].level;
         questions = Levels(level);
-
-        //level = this.GetComponent<DBManagement>().QueryCardsLevel();
-        //this.GetComponent<DBManagement>().CloseConn();
-        //questions = Levels(level);
         levelGame.text = "NIVEL: " + level;
         Create();
     }
@@ -270,14 +265,10 @@ public class CardController : MonoBehaviour
         scoreGameOver.text = "PUNTAJE: " + scorePlayer;
         bonusGameOver.text = "BONUS: " + bonusScorePlayer;
         totalGameOver.text = "TOTAL: " + (scorePlayer + bonusScorePlayer);
-        
-
-        //memoriaDB.updateScore(scorePlayer + bonusScorePlayer); //actualizar DB
         cardDAO.puntajesArray.puntajes[0].score += (scorePlayer + bonusScorePlayer);
+        cardDAO.SaveCardLevel();
         int pieces = (scorePlayer + bonusScorePlayer) / 135;
-
-        //this.GetComponent<DBManagement>().QuerySetPieces(pieces);
-        cardDAO.jugador.available_pieces = pieces;
+        cardDAO.jugador.available_pieces += pieces;
         gameOver.SetActive(true); 
         playing = false;
     }
@@ -315,8 +306,7 @@ public class CardController : MonoBehaviour
     }
 
     private CardInfo[] UploadData()
-    {
-         
+    {         
         CardInfo[] cardsQuestions = cardDAO.ReadQuestionJson();
         return cardsQuestions;
     }
