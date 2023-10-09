@@ -55,8 +55,7 @@ public class CardController : MonoBehaviour
     void Start()
     {
         cardDAO = this.GetComponent<CardDAO>();
-        cardDAO.ReadInfo();
-        Debug.Log($"{cardDAO.jugador.available_pieces}");        
+        cardDAO.ReadInfo();       
         cardDAO.SaveQuestionJson();
         level = cardDAO.puntajesArray.puntajes[0].level;
         questions = Levels(level);
