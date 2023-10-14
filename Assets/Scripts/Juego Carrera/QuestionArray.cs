@@ -7,7 +7,11 @@ using System;
 public class QuestionArray
 {
     public QuestionInfo[] questions;
-    public QuestionArray(){
+    public QuestionArray(){ }
 
+    public void ListShuffle(){ 
+        foreach(QuestionInfo item in questions){
+            item.Shuffle();            
+        }
     }
 }

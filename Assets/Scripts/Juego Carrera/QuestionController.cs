@@ -10,7 +10,7 @@ public class QuestionController : MonoBehaviour
 {
     private float[,] coordQuestions = new float[12, 3]
     {
-        { 30.12f, 40.04f, 0f }, 
+        { 30.12f, 40.04f, 0f },
         { 0f, 40.04f, 0f },
         { -30.12f, 40.04f, 0f },
         { -65.323f, 26.01f, -60.628f },
@@ -33,7 +33,7 @@ public class QuestionController : MonoBehaviour
     public GameObject gameOverCanvas;
     public Transform questionsParent;
     public Sprite[] pauseSprites;
-    private string level;
+    private int level;
 
     private int FinalScoring = 0;
     private int successes = 0;
@@ -49,16 +49,19 @@ public class QuestionController : MonoBehaviour
     private static bool gameisPaused = false;
     public Coroutine scoreC;
 
-    private Carrera carreraDB = new Carrera();
-
     //Card DAO for accessing to Data by JSON file
     private QuestionDAO questionDAO;
 
     // Start is called before the first frame update
     void Start()
-    {  
-        QueryLevelDB();
+    {        
+        questionDAO = this.GetComponent<QuestionDAO>();
+        questionDAO.ReadInfo();
+        questionDAO.SaveQuestionJson();
+        level = questionDAO.puntajesArray.puntajes[1].level;
         questions = Levels(level);
+        gameInfoSup.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
+            "NIVEL: " + level;
         Create();
     }
 
@@ -83,16 +86,15 @@ public class QuestionController : MonoBehaviour
                     DefeatAnimate();
                 }
             }
-        }else{
-            QueryLevelDB();
         }
+        /* else
+        {
+            GetLevel();
+        } */
     }
-    void QueryLevelDB(){
-        level = this.GetComponent<DBManagement>().QueryRunnerLevel();
-        this.GetComponent<DBManagement>().CloseConn();
-        gameInfoSup.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text =
-            "NIVEL: " + level;
-    }
+
+
+
     void VictoryAnimate()
     {
         player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", true);
@@ -145,8 +147,7 @@ public class QuestionController : MonoBehaviour
         int qCheck = 0;
         yield return new WaitForSeconds(Time.deltaTime);
         for (int i = 0; i < modules.Count; i++)
-        {       
-
+        {
             if (modules[i].GetComponent<Question>().answered)
             {
                 qCheck += 1;
@@ -158,8 +159,7 @@ public class QuestionController : MonoBehaviour
                 {
                     isStreak = true;
                     streakCounter += 1;
-                    success += 1;    
-                                   
+                    success += 1;
                 }
                 else
                 {
@@ -199,13 +199,15 @@ public class QuestionController : MonoBehaviour
         FinalScoring = (scoring + bonusScore);
         gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
             "TOTAL: " + FinalScoring;
-        carreraDB.updateScore(FinalScoring);//agregamos el update en la base de datos
+        
+        //carreraDB.updateScore(FinalScoring); //agregamos el update en la base de datos
+        questionDAO.puntajesArray.puntajes[1].score += FinalScoring;
+        questionDAO.SaveRunnerLevel();
         int pieces = (FinalScoring) / 135;
-        this.GetComponent<DBManagement>().QuerySetRunnerLevel();
-        this.GetComponent<DBManagement>().QuerySetPieces(pieces);
+        questionDAO.jugador.available_pieces += pieces;
+        questionDAO.SaveJugador();
         gameOverCanvas.SetActive(true);
         playing = false;
-        
     }
 
     public void ReloadGame()
@@ -277,21 +279,6 @@ public class QuestionController : MonoBehaviour
         playing = false;
     }
 
-    private List<QuestionInfo> Levels(string level)
-    {
-        QuestionInfo[] data = UploadData();
-        List<QuestionInfo> questionList = new List<QuestionInfo>();
-        foreach (QuestionInfo item in data)
-        {
-            if (item.level.Equals(level))
-            {
-                questionList.Add(item);
-            }
-        }
-        Shuffle(questionList);
-        return questionList;
-    }
-
     public void Shuffle<QuestionInfo>(List<QuestionInfo> list)
     {
         System.Random rng = new System.Random();
@@ -306,10 +293,23 @@ public class QuestionController : MonoBehaviour
         }
     }
 
-    private QuestionInfo[] UploadData()
+    private List<QuestionInfo> Levels(int level)
     {
-        questionDAO = new QuestionDAO();
-        questionDAO.SaveQuestionJson();
+        QuestionInfo[] data = UploadData();
+        List<QuestionInfo> questionList = new List<QuestionInfo>();
+        foreach (QuestionInfo item in data)
+        {
+            if (item.level == level)
+            {
+                questionList.Add(item);
+            }
+        }
+        Shuffle(questionList);
+        return questionList;
+    }
+
+    private QuestionInfo[] UploadData()
+    {        
         QuestionInfo[] questions = questionDAO.ReadQuestionJson();
         return questions;
     }
