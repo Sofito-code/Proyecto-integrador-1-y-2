@@ -1,23 +1,31 @@
-using System.Net.Mime;
 using System.Net;
-using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class QuestionDAO
+public class QuestionDAO : MonoBehaviour
 {
+    [SerializeField]
+    public ModelPuntajesArray puntajesArray;
 
-    public QuestionInfo[] ReadQuestionJson(){
+    [SerializeField]
+    public ModelJugador jugador;
+
+    [ContextMenu("ReadQuestionJson")]
+    public QuestionInfo[] ReadQuestionJson()
+    {
         string path = Path.Combine(Application.persistentDataPath, "correr.data");
         string text = File.ReadAllText(path);
         QuestionArray questionArray = JsonUtility.FromJson<QuestionArray>(text);
+        questionArray.ListShuffle();
         QuestionInfo[] questions = questionArray.questions;
         return questions;
     }
 
-    public void SaveQuestionJson(){
+    [ContextMenu("SaveQuestionJson")]
+    public void SaveQuestionJson()
+    {
         string questionsJson = @"{
         ""questions"":
             [
@@ -206,7 +214,7 @@ public class QuestionDAO
                 {
                     ""level"": 2,
                     ""id"": 209,
-                    ""question"": ""¿la calidad en educación superior, es?"",
+                    ""question"": ""¿la calidad en educación superior es?"",
                     ""answer1"": ""nivel de correspondencia con lo esperado"",
                     ""answer2"": ""goodwill de la institución""
                 },
@@ -234,7 +242,7 @@ public class QuestionDAO
                 {
                     ""level"": 2,
                     ""id"": 213,
-                    ""question"": ""Institución acreditada por 10 años, implica tener"",
+                    ""question"": ""Institución acreditada por 10 años implica tener"",
                     ""answer1"": ""60% o más de programas Acreditados"",
                     ""answer2"": ""Autoevaluación Institucional.""
                 },
@@ -360,7 +368,7 @@ public class QuestionDAO
                 {
                     ""level"": 3,
                     ""id"": 313,
-                    ""question"": ""¿Pienso estudiar mi posgrado en el exterior, mi programa debe tener acreditación?"",
+                    ""question"": ""¿Pienso estudiar mi posgrado en el exterior mi programa debe tener acreditación?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
@@ -402,7 +410,73 @@ public class QuestionDAO
             ]
         }";
         string path = Path.Combine(Application.persistentDataPath, "correr.data");
-        File.WriteAllText(path,questionsJson);
+        File.WriteAllText(path, questionsJson);
     }
 
+    [ContextMenu("ReadInfo")]
+    public void ReadInfo()
+    {
+        ReadPuntaje();
+        ReadJugador();
+    }
+
+    private void ReadPuntaje()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
+        if (File.Exists(path))
+        {
+            string text = File.ReadAllText(path);
+            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+        }
+        else
+        {
+            Debug.Log($"Error: No se pudo leer el puntaje guardado");
+            puntajesArray.puntajes[1].score = 0;
+        }
+    }
+
+    private void ReadJugador()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "jugador.data");
+        if (File.Exists(path))
+        {
+            string text = File.ReadAllText(path);
+            jugador = JsonUtility.FromJson<ModelJugador>(text);
+        }
+        else
+        {
+            Debug.Log($"Error: No se pudo leer los datos del jugador");
+            jugador.available_pieces = 0;
+        }
+    }
+
+    public void SaveJugador()
+    {
+        string jugadorJson = JsonUtility.ToJson(jugador);
+        string path = Path.Combine(Application.persistentDataPath, "jugador.data");
+        File.WriteAllText(path, jugadorJson);
+    }
+
+    public void SaveRunnerLevel()
+    {
+        int score = puntajesArray.puntajes[1].score;
+        int limit = 1600;
+        int lvl = 0;
+        if (score >= (limit * 3))
+        {
+            lvl = 3;
+        }
+        else if (score >= limit)
+        {
+            lvl = 2;
+        }
+        else
+        {
+            lvl = 1;
+        }
+        puntajesArray.puntajes[1].level = lvl;
+        string puntajeJson = JsonUtility.ToJson(puntajesArray);
+        string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
+        File.WriteAllText(path, puntajeJson);
+    }
 }
