@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,18 +9,20 @@ public class PiecesController : MonoBehaviour
     public TMP_Text pieces;
     public TMP_Text notification;
     private bool setPiece = false;
-    private int piecesDB = 0;
+    private int piecesPlayer = 0;
+    private PiecesDAO piecesDAO;
 
     // Start is called before the first frame update
     void Start()
     {
-        piecesDB = this.GetComponent<DBManagement>().QueryGetPieces();
-        this.GetComponent<DBManagement>().CloseConn();
-        if (piecesDB >= 15)
+        piecesDAO = this.GetComponent<PiecesDAO>();
+        piecesDAO.ReadJugador();
+        piecesPlayer = piecesDAO.jugador.available_pieces;
+        if(piecesPlayer >= 15)
         {
             setPiece = true;
         }
-        pieces.text = piecesDB + "";
+        pieces.text = piecesPlayer + "";
     }
 
     // Update is called once per frame
@@ -27,17 +30,23 @@ public class PiecesController : MonoBehaviour
     {
         if (setPiece)
         {
-            int numberPieces = (piecesDB / 15) > 10 ? 10: (piecesDB / 15);
-            int remainder = piecesDB % 15;
-            List<int> paints = this.GetComponent<DBManagement>().QueryGetPaints();
-            this.GetComponent<DBManagement>().CloseConn();
-            if(paints.Count > 0){
+            int numberPieces = (piecesPlayer / 15) > 10 ? 10: (piecesPlayer / 15);
+            int remainder = piecesPlayer % 15;
+            ModelCuadros[] paints = piecesDAO.ReadCuadros();
+            List<ModelCuadros> paintsList = new List<ModelCuadros>();
+            for(int i = 0; i < paints.Length; i++){
+                ModelCuadros paint = paints[i];
+                if(paint.landed == 0){
+                    paintsList.Add(paint);
+                }
+            }
+            if(paintsList.Count > 0){
                 for (int i = 0; i < numberPieces; i++)
                 {
-                    this.GetComponent<DBManagement>().QueryBuyPaint(paints[i]);
+                    piecesDAO.BuyPaint(paintsList[i].painting_id);
                 }
-                this.GetComponent<DBManagement>().QuerySetPiecesToRemainder(remainder);
-                this.GetComponent<DBManagement>().CloseConn();
+                piecesDAO.jugador.available_pieces = remainder;
+                piecesDAO.SaveJugador();
                 notification.gameObject.SetActive(true);
                 pieces.text = remainder + "";
             }

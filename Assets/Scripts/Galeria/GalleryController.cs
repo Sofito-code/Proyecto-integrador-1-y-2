@@ -18,10 +18,4 @@ public class GalleryController : MonoBehaviour
             this.transform.GetChild(id).GetChild(0).gameObject.GetComponent<Image>().sprite = sp;
         }        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
