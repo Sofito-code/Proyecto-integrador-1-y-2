@@ -6,6 +6,6 @@ using System;
 [Serializable]
 public class ModelCuadrosArray
 {
-    ModelCuadros[] cuadros;
+    public ModelCuadros[] cuadros;
     public ModelCuadrosArray(){ }
 }

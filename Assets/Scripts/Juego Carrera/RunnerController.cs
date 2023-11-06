@@ -11,6 +11,8 @@ public class RunnerController : MonoBehaviour
     private Transform[] auxRail;
     public float velocidad;
     public bool career = true;
+
+    private bool rigth = true;
     public float velRotacion;
     private int point = 0;
     public Coroutine spawnCoroutine;
@@ -18,6 +20,10 @@ public class RunnerController : MonoBehaviour
     void Start()
     {
         auxRail = (Transform[])rail2.Clone();
+        for(int i=0; i<rail1.Length; i++){
+            Vector3 distancia = rail1[i].transform.position - rail2[i].transform.position;
+            Debug.Log($"{distancia}");
+        }
     }
 
     // Update is called once per frame
@@ -33,6 +39,7 @@ public class RunnerController : MonoBehaviour
 
     IEnumerator Run()
     {
+        float tpDistance = 8f;
         bool arrive;
         for (point = 0; point < auxRail.Length; point++)
         {
@@ -47,6 +54,12 @@ public class RunnerController : MonoBehaviour
                         if (auxRail[point].position != rail2[point].position)
                         {
                             ChangeRail(rail2);
+                            if(rigth == false){
+                                
+                                player.transform.position += (Vector3.right * tpDistance);
+                                //player.transform.localPosition += new Vector3(0,0,8f);
+                                rigth = true;
+                            }              
                         }
                     }
                     if (Input.GetKeyDown("left") || Input.GetKeyDown("a"))
@@ -54,8 +67,16 @@ public class RunnerController : MonoBehaviour
                         if (auxRail[point].position != rail1[point].position)
                         {
                             ChangeRail(rail1);
+                            if(rigth == true){
+                                player.transform.position += (Vector3.left * tpDistance);
+                                //player.transform.localPosition += new Vector3(0,0,-8f);
+                                rigth = false;
+                            }
                         }
                     }
+
+                    //aquí teletransportar el jugador
+                    
                     player.transform.position = Vector3.MoveTowards(
                         player.transform.position,
                         auxRail[point].position,
