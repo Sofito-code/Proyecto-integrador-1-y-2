@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mono.Data.Sqlite;
+using System.IO;
 using System.Data;
 using UnityEngine.UI;
 using TMPro;
@@ -14,30 +14,36 @@ public class Progreso : MonoBehaviour
     public TextMeshProUGUI puntajeRunner;
     public TextMeshProUGUI levelMemoria;
     public TextMeshProUGUI levelRunner;
-    
+    [SerializeField]
+    public ModelPuntajesArray puntajesArray;
 
     private void Awake(){
         instance = this;
     }
     void Start()
     {
-        IDataReader reader = Query("SELECT score, level FROM jugadores, puntajes where jugadores.player_id = puntajes.player_id");                
-        reader.Read();
-        puntajeMemoria.text = "Puntaje Acumulado: " + reader[0];
-        levelMemoria.text = "Nivel: " + reader[1];
-        reader.Read();
-        puntajeRunner.text = "Puntaje Acumulado: " + reader[0];
-        levelRunner.text = "Nivel: " + reader[1];
-
+        ReadPuntaje();
+        puntajeMemoria.text = "Puntaje Acumulado: " + puntajesArray.puntajes[0].score;
+        levelMemoria.text = "Nivel: " + puntajesArray.puntajes[0].level;
+        puntajeRunner.text = "Puntaje Acumulado: " + puntajesArray.puntajes[1].score;
+        levelRunner.text = "Nivel: " + puntajesArray.puntajes[1].level;
     }
 
-    public IDataReader Query(string q){
-        string conn_str = "URI=file:"+ Application.dataPath + "/Plugins/game_db.s3db";
-        IDbConnection dbConnection = new SqliteConnection(conn_str);
-        dbConnection.Open();
-        IDbCommand dbCommand = dbConnection.CreateCommand();
-        dbCommand.CommandText = q;
-        IDataReader reader = dbCommand.ExecuteReader();
-        return reader;
+    private void ReadPuntaje()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
+        if (File.Exists(path))
+        {
+            string text = File.ReadAllText(path);
+            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+        }
+        else
+        {
+            Debug.Log($"Error: No se pudo leer el puntaje guardado");
+            puntajesArray.puntajes[0].score = 0;
+            puntajesArray.puntajes[1].score = 0;
+            puntajesArray.puntajes[0].level = 1;
+            puntajesArray.puntajes[1].level = 1;
+        }
     }
 }
