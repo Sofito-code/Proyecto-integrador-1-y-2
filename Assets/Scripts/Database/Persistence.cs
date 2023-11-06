@@ -104,8 +104,8 @@ public class Persistence : MonoBehaviour
             {
                 ""painting_id"": 11,
                 ""img_src"": ""Final"",
-                ""pieces_amount"": 15,
-                ""landed"": 0
+                ""pieces_amount"": 10,
+                ""landed"": 2
             }
         ]
     }";

@@ -199,8 +199,7 @@ public class QuestionController : MonoBehaviour
         FinalScoring = (scoring + bonusScore);
         gameOverCanvas.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text =
             "TOTAL: " + FinalScoring;
-        
-        //carreraDB.updateScore(FinalScoring); //agregamos el update en la base de datos
+        //agregamos el update en la persistencia de datos
         questionDAO.puntajesArray.puntajes[1].score += FinalScoring;
         questionDAO.SaveRunnerLevel();
         int pieces = (FinalScoring) / 135;

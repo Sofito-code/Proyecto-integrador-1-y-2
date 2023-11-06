@@ -887,11 +887,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cuadrosArray:
-    cuadros: []
+    cuadros:
+    - painting_id: 1
+      img_src: Assets/Game/Postales/1.JPG
+      pieces_amount: 0
+      landed: 1
+    - painting_id: 2
+      img_src: Assets/Game/Postales/2.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 3
+      img_src: Assets/Game/Postales/3.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 4
+      img_src: Assets/Game/Postales/4.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 5
+      img_src: Assets/Game/Postales/5.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 6
+      img_src: Assets/Game/Postales/6.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 7
+      img_src: Assets/Game/Postales/7.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 8
+      img_src: Assets/Game/Postales/8.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 9
+      img_src: Assets/Game/Postales/9.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 10
+      img_src: Assets/Game/Postales/10.JPG
+      pieces_amount: 15
+      landed: 0
+    - painting_id: 11
+      img_src: Final
+      pieces_amount: 15
+      landed: 0
   jugador:
     player_id: 1
     player_name: Camilo
     available_pieces: 2
+--- !u!114 &2045308264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045308256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0b812338b573947bf262e4aecd7650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1317480407308537725
 PrefabInstance:
   m_ObjectHideFlags: 0
