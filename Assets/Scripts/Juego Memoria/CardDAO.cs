@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class CardDAO : MonoBehaviour
 {    
@@ -16,14 +17,15 @@ public class CardDAO : MonoBehaviour
     public CardInfo[] ReadQuestionJson()
     {
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
-        string text = File.ReadAllText(path);
-        CardArray questionArray = JsonUtility.FromJson<CardArray>(text);
-        CardInfo[] cards = questionArray.questions;
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        CardInfo[] cards = (CardInfo[]) bf.Deserialize(fs);
+        fs.Close();
         return cards;
     }
 
     public void SaveQuestionJson(){
-        string questionsJson = @"{
+        string json = @"{
         ""questions"":
             [
                 {
@@ -231,8 +233,13 @@ public class CardDAO : MonoBehaviour
                 }
             ]
         }";
+        CardArray questionArray = JsonUtility.FromJson<CardArray>(json);
+        CardInfo[] cards = questionArray.questions;
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
-        File.WriteAllText(path,questionsJson);
+        FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, cards);
+        fs.Close();
     }
 
     [ContextMenu("ReadInfo")]
