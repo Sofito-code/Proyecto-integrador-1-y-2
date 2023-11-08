@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class QuestionDAO : MonoBehaviour
 {
@@ -12,21 +14,10 @@ public class QuestionDAO : MonoBehaviour
     [SerializeField]
     public ModelJugador jugador;
 
-    [ContextMenu("ReadQuestionJson")]
-    public QuestionInfo[] ReadQuestionJson()
-    {
-        string path = Path.Combine(Application.persistentDataPath, "correr.data");
-        string text = File.ReadAllText(path);
-        QuestionArray questionArray = JsonUtility.FromJson<QuestionArray>(text);
-        questionArray.ListShuffle();
-        QuestionInfo[] questions = questionArray.questions;
-        return questions;
-    }
-
     [ContextMenu("SaveQuestionJson")]
     public void SaveQuestionJson()
     {
-        string questionsJson = @"{
+        string json = @"{
         ""questions"":
             [
                 {
@@ -409,8 +400,28 @@ public class QuestionDAO : MonoBehaviour
                 }
             ]
         }";
+        QuestionArray questionArray = JsonUtility.FromJson<QuestionArray>(json);
+        questionArray.ListShuffle();
+        QuestionInfo[] questions = questionArray.questions;
         string path = Path.Combine(Application.persistentDataPath, "correr.data");
-        File.WriteAllText(path, questionsJson);
+        FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, questions);
+        fs.Close();
+    }
+
+    [ContextMenu("ReadQuestionJson")]
+    public QuestionInfo[] ReadQuestionJson()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "correr.data");
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        QuestionInfo[] questions = (QuestionInfo[]) bf.Deserialize(fs);
+        fs.Close();
+        foreach(QuestionInfo item in questions){
+            item.Shuffle();
+        }
+        return questions;
     }
 
     [ContextMenu("ReadInfo")]
