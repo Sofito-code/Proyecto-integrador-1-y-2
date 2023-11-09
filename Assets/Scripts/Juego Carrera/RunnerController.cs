@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,7 +57,11 @@ public class RunnerController : MonoBehaviour
                             ChangeRail(rail2);
                             if(rigth == false){
                                 
-                                player.transform.position += (Vector3.right * tpDistance);
+                                //player.transform.position += (Vector3.right * tpDistance);
+                                float angle = player.transform.eulerAngles.y * Mathf.Deg2Rad;
+                                Vector3 movementDirection = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                                Vector3 movement = player.transform.TransformDirection(movementDirection) * tpDistance;
+                                player.transform.Translate(movement);
                                 //player.transform.localPosition += new Vector3(0,0,8f);
                                 rigth = true;
                             }              
@@ -68,7 +73,11 @@ public class RunnerController : MonoBehaviour
                         {
                             ChangeRail(rail1);
                             if(rigth == true){
-                                player.transform.position += (Vector3.left * tpDistance);
+                                float angle = player.transform.eulerAngles.y * Mathf.Deg2Rad;
+                                Vector3 movementDirection = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                                Vector3 movement = player.transform.TransformDirection(movementDirection) * tpDistance * -1f;
+                                player.transform.Translate(movement);
+                                //player.transform.position += (Vector3.left * tpDistance);
                                 //player.transform.localPosition += new Vector3(0,0,-8f);
                                 rigth = false;
                             }
