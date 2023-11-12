@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class GalleryController : MonoBehaviour
 {
@@ -29,9 +30,10 @@ public class GalleryController : MonoBehaviour
     public ModelCuadros[] ReadCuadros()
     {
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
-        string text = File.ReadAllText(path);
-        ModelCuadrosArray cuadrosArray = JsonUtility.FromJson<ModelCuadrosArray>(text);
-        ModelCuadros[] cuadros = cuadrosArray.cuadros;
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        ModelCuadros[] cuadros = (ModelCuadros[]) bf.Deserialize(fs);
+        fs.Close();
         return cuadros;
     }
 }

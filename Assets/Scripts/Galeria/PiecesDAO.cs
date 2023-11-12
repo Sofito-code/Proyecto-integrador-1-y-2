@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class PiecesDAO : MonoBehaviour
 {
@@ -17,19 +18,23 @@ public class PiecesDAO : MonoBehaviour
     public ModelCuadros[] ReadCuadros()
     {
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
-        string text = File.ReadAllText(path);
-        ModelCuadrosArray cuadrosArray = JsonUtility.FromJson<ModelCuadrosArray>(text);
-        this.cuadrosArray = cuadrosArray;
-        ModelCuadros[] cuadros = cuadrosArray.cuadros;
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        ModelCuadros[] cuadros = (ModelCuadros[]) bf.Deserialize(fs);
+        fs.Close();
+        this.cuadrosArray.cuadros = cuadros;
         return cuadros;
     }
 
     [ContextMenu("SaveCuadros")]
     public void SaveCuadros()
     {
-        string cuadrosJson = JsonUtility.ToJson(cuadrosArray);
+        ModelCuadros[] cuadros = cuadrosArray.cuadros;
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
-        File.WriteAllText(path, cuadrosJson);
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, cuadros);
+        fs.Close();
     }
 
     public void BuyPaint(int id)
@@ -52,8 +57,10 @@ public class PiecesDAO : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
         if (File.Exists(path))
         {
-            string text = File.ReadAllText(path);
-            jugador = JsonUtility.FromJson<ModelJugador>(text);
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            jugador = (ModelJugador) bf.Deserialize(fs);
+            fs.Close();
         }
         else
         {
@@ -64,8 +71,10 @@ public class PiecesDAO : MonoBehaviour
 
     public void SaveJugador()
     {
-        string jugadorJson = JsonUtility.ToJson(jugador);
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
-        File.WriteAllText(path, jugadorJson);
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, jugador);
+        fs.Close();
     }
 }

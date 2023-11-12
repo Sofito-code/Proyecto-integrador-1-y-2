@@ -1,4 +1,3 @@
-
 using System.Net;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class CardDAO : MonoBehaviour
-{    
+{
     [SerializeField]
     public ModelPuntajesArray puntajesArray;
 
@@ -19,13 +18,15 @@ public class CardDAO : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "memoria.data");
         FileStream fs = new FileStream(path, FileMode.Open);
         BinaryFormatter bf = new BinaryFormatter();
-        CardInfo[] cards = (CardInfo[]) bf.Deserialize(fs);
+        CardInfo[] cards = (CardInfo[])bf.Deserialize(fs);
         fs.Close();
         return cards;
     }
 
-    public void SaveQuestionJson(){
-        string json = @"{
+    public void SaveQuestionJson()
+    {
+        string json =
+            @"{
         ""questions"":
             [
                 {
@@ -243,60 +244,79 @@ public class CardDAO : MonoBehaviour
     }
 
     [ContextMenu("ReadInfo")]
-    public void ReadInfo(){
+    public void ReadInfo()
+    {
         ReadPuntaje();
         ReadJugador();
     }
 
-    private void ReadPuntaje(){
+    private void ReadPuntaje()
+    {
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
-        if(File.Exists(path)){
-            string text = File.ReadAllText(path);
-            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+        if (File.Exists(path))
+        {
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            ModelPuntajes[] puntajes = (ModelPuntajes[])bf.Deserialize(fs);
+            puntajesArray.puntajes = puntajes;
+            fs.Close();
         }
-        else{
+        else
+        {
             Debug.Log($"Error: No se pudo leer el puntaje guardado");
             puntajesArray.puntajes[0].score = 0;
         }
     }
 
-    private void ReadJugador(){
+    private void ReadJugador()
+    {
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
-        if(File.Exists(path)){
-            string text = File.ReadAllText(path);
-            jugador = JsonUtility.FromJson<ModelJugador>(text);
+        if (File.Exists(path))
+        {
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            jugador = (ModelJugador) bf.Deserialize(fs);
+            fs.Close();
         }
-        else{
+        else
+        {
             Debug.Log($"Error: No se pudo leer los datos del jugador");
             jugador.available_pieces = 0;
         }
     }
 
-    public void SaveJugador(){
-        string jugadorJson = JsonUtility.ToJson(jugador);
+    public void SaveJugador()
+    {
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
-        File.WriteAllText(path,jugadorJson);
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, jugador);
+        fs.Close();
     }
 
-    public void SaveCardLevel(){
+    public void SaveCardLevel()
+    {
         int score = puntajesArray.puntajes[0].score;
         int limit = 2000;
-        int lvl = 0;    
+        int lvl = 0;
         if (score >= (limit * 3))
-        {            
+        {
             lvl = 3;
         }
         else if (score >= limit)
-        {            
+        {
             lvl = 2;
         }
         else
         {
-            lvl = 1;            
+            lvl = 1;
         }
         puntajesArray.puntajes[0].level = lvl;
-        string puntajeJson = JsonUtility.ToJson(puntajesArray);
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
-        File.WriteAllText(path,puntajeJson);
+        ModelPuntajes[] puntajes = puntajesArray.puntajes;
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, puntajes);
+        fs.Close();
     }
 }

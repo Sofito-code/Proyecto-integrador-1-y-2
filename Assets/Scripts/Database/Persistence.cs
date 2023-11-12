@@ -3,16 +3,15 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class Persistence : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start() { 
+    void Start()
+    {
         InitPersistence();
     }
-
-    // Update is called once per frame
-    void Update() { }
 
     [ContextMenu("Persistencia")]
     public void InitPersistence()
@@ -24,21 +23,26 @@ public class Persistence : MonoBehaviour
 
     private void InitJugador()
     {
-        string jugadorJson =
-            @"
-            {
+        string jugadorJson = @"{
                 ""player_id"": 1,
-                ""player_name"": ""Camilo"",			
-                ""available_pieces"": 0                
+                ""player_name"": ""Camilo"",
+                ""available_pieces"": 0
             }";
+        ModelJugador jugador = JsonUtility.FromJson<ModelJugador>(jugadorJson);
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
         if (!File.Exists(path))
-            File.WriteAllText(path, jugadorJson);
+        {
+            FileStream fs = new FileStream(path, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, jugador);
+            fs.Close();
+        }
     }
 
     private void InitCuadros()
     {
-        string cuadrosJson = @"{
+        string cuadrosJson =
+            @"{
         ""cuadros"":
         [
             {
@@ -109,16 +113,21 @@ public class Persistence : MonoBehaviour
             }
         ]
     }";
+        ModelCuadrosArray cuadrosArray = JsonUtility.FromJson<ModelCuadrosArray>(cuadrosJson);
+        ModelCuadros[] cuadros = cuadrosArray.cuadros;
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
         if (!File.Exists(path))
-            File.WriteAllText(path, cuadrosJson);
+        {
+            FileStream fs = new FileStream(path, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, cuadros);
+            fs.Close();
+        }
     }
 
     private void InitPuntajes()
     {
-        string puntajesJson =
-            @"
-        {
+        string puntajesJson = @"{
             ""puntajes"":
             [
                 {
@@ -135,8 +144,15 @@ public class Persistence : MonoBehaviour
                 }
             ]
         }";
+        ModelPuntajesArray puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(puntajesJson);
+        ModelPuntajes[] puntajes = puntajesArray.puntajes;
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
         if (!File.Exists(path))
-            File.WriteAllText(path, puntajesJson);
+        {
+            FileStream fs = new FileStream(path, FileMode.Create);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, puntajes);
+            fs.Close();
+        }
     }
 }

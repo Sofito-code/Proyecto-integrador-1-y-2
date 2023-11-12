@@ -5,6 +5,7 @@ using System.IO;
 using System.Data;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class Progreso : MonoBehaviour
 {
@@ -34,8 +35,11 @@ public class Progreso : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
         if (File.Exists(path))
         {
-            string text = File.ReadAllText(path);
-            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            ModelPuntajes[] puntajes = (ModelPuntajes[]) bf.Deserialize(fs);
+            puntajesArray.puntajes = puntajes;
+            fs.Close();
         }
         else
         {
