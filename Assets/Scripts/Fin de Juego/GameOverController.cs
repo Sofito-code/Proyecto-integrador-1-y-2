@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameOverController : MonoBehaviour
 {
@@ -48,18 +49,22 @@ public class GameOverController : MonoBehaviour
     public ModelCuadros[] ReadCuadros()
     {
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
-        string text = File.ReadAllText(path);
-        ModelCuadrosArray cuadrosArray = JsonUtility.FromJson<ModelCuadrosArray>(text);
-        this.cuadrosArray = cuadrosArray;
-        ModelCuadros[] cuadros = cuadrosArray.cuadros;
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter bf = new BinaryFormatter();
+        ModelCuadros[] cuadros = (ModelCuadros[]) bf.Deserialize(fs);
+        fs.Close();
+        this.cuadrosArray.cuadros = cuadros;
         return cuadros;
     }
 
     public void SaveCuadros()
     {
-        string cuadrosJson = JsonUtility.ToJson(cuadrosArray);
+        ModelCuadros[] cuadros = cuadrosArray.cuadros;
         string path = Path.Combine(Application.persistentDataPath, "cuadros.data");
-        File.WriteAllText(path, cuadrosJson);
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, cuadros);
+        fs.Close();
     }
 
     // Update is called once per frame

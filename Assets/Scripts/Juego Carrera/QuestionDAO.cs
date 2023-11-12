@@ -436,8 +436,11 @@ public class QuestionDAO : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
         if (File.Exists(path))
         {
-            string text = File.ReadAllText(path);
-            puntajesArray = JsonUtility.FromJson<ModelPuntajesArray>(text);
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            ModelPuntajes[] puntajes = (ModelPuntajes[]) bf.Deserialize(fs);
+            puntajesArray.puntajes = puntajes;
+            fs.Close();
         }
         else
         {
@@ -451,8 +454,10 @@ public class QuestionDAO : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
         if (File.Exists(path))
         {
-            string text = File.ReadAllText(path);
-            jugador = JsonUtility.FromJson<ModelJugador>(text);
+            FileStream fs = new FileStream(path, FileMode.Open);
+            BinaryFormatter bf = new BinaryFormatter();
+            jugador = (ModelJugador) bf.Deserialize(fs);
+            fs.Close();
         }
         else
         {
@@ -463,9 +468,11 @@ public class QuestionDAO : MonoBehaviour
 
     public void SaveJugador()
     {
-        string jugadorJson = JsonUtility.ToJson(jugador);
         string path = Path.Combine(Application.persistentDataPath, "jugador.data");
-        File.WriteAllText(path, jugadorJson);
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, jugador);
+        fs.Close();
     }
 
     public void SaveRunnerLevel()
@@ -486,8 +493,11 @@ public class QuestionDAO : MonoBehaviour
             lvl = 1;
         }
         puntajesArray.puntajes[1].level = lvl;
-        string puntajeJson = JsonUtility.ToJson(puntajesArray);
         string path = Path.Combine(Application.persistentDataPath, "puntajes.data");
-        File.WriteAllText(path, puntajeJson);
+        ModelPuntajes[] puntajes = puntajesArray.puntajes;
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(fs, puntajes);
+        fs.Close();
     }
 }

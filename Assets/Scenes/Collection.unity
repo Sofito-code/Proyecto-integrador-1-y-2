@@ -482,7 +482,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8641458848132815126, guid: 57ca910ef5c2fb145922847a20961d37, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57ca910ef5c2fb145922847a20961d37, type: 3}
 --- !u!1 &8641458849235692740 stripped
 GameObject:
@@ -502,3 +503,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd6b93b575f3c4eaa03de06a9ffec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cuadrosArray:
+    cuadros: []
