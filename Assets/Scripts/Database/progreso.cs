@@ -38,7 +38,7 @@ public class Progreso : MonoBehaviour
             FileStream fs = new FileStream(path, FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
             ModelPuntajes[] puntajes = (ModelPuntajes[]) bf.Deserialize(fs);
-            puntajesArray.puntajes = puntajes;
+            puntajesArray.puntajes = puntajes; 
             fs.Close();
         }
         else
