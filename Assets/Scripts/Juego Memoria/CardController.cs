@@ -276,7 +276,7 @@ public class CardController : MonoBehaviour
     }
 
     public void buttonBack(){
-        SceneManager.LoadScene(1);
+        LevelLoader.LoadLevel(1);
     }
 
     public void Shuffle<CardInfo>(List<CardInfo> list)  
