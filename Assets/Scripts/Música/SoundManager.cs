@@ -19,7 +19,6 @@ public class SoundManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Debug.Log($"destroy");
         }
         
         foreach (Sound s in sounds)
