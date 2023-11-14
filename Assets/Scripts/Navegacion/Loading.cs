@@ -15,7 +15,8 @@ public class Loading : MonoBehaviour
     void Start()
     {
         int levelToLoad = LevelLoader.nextLevel;
-        StartCoroutine(this.MakeTheLoad(levelToLoad));        
+        FindObjectOfType<SoundManager>().Play("Cargando");
+        StartCoroutine(this.MakeTheLoad(levelToLoad));
     }
 
     IEnumerator MakeTheLoad(int level)
@@ -25,9 +26,9 @@ public class Loading : MonoBehaviour
         PantallaDeCarga.SetActive(true);
         while (!operation.isDone)
         {
-            float progreso = Mathf.Clamp01(operation.progress / .9f);            
+            float progreso = Mathf.Clamp01(operation.progress / .9f);
             Slider.value = progreso; 
-            tmp.text = (progreso * 100) + "%";           
+            tmp.text = (progreso * 100) + "%";
             yield return null;
         }
         //Parar coroutine??
