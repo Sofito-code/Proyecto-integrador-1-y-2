@@ -55,6 +55,8 @@ public class QuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
+        FindObjectOfType<SoundManager>().Change("Carrera");
+        //FindObjectOfType<SoundManager>().Stop("Lobby1");
         questionDAO = this.GetComponent<QuestionDAO>();
         questionDAO.ReadInfo();
         questionDAO.SaveQuestionJson();
@@ -92,9 +94,6 @@ public class QuestionController : MonoBehaviour
             GetLevel();
         } */
     }
-
-
-
     void VictoryAnimate()
     {
         player.transform.GetChild(0).GetComponent<Animator>().SetBool("Victory", true);

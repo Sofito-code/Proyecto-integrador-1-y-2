@@ -54,6 +54,7 @@ public class CardController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<SoundManager>().Change("Cartas");
         cardDAO = this.GetComponent<CardDAO>();
         cardDAO.ReadInfo();       
         cardDAO.SaveQuestionJson();
