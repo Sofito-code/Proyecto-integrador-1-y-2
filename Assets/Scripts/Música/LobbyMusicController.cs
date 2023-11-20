@@ -8,7 +8,12 @@ public class LobbyMusicController : MonoBehaviour
     void Start()
     {
         string song = FindObjectOfType<SoundManager>().song;
-        if(song != "Lobby1")
-            FindObjectOfType<SoundManager>().Change("Lobby1");
+        if(song != "Lobby1"){
+            SoundManager sm = FindObjectOfType<SoundManager>();
+            if (sm != null)
+            {
+                sm.Change("Lobby1");    
+            }
+        }
     }
 }

@@ -15,7 +15,11 @@ public class Loading : MonoBehaviour
     void Start()
     {
         int levelToLoad = LevelLoader.nextLevel;
-        FindObjectOfType<SoundManager>().Play("Cargando");
+        SoundManager sm = FindObjectOfType<SoundManager>();
+        if (sm != null)
+        {
+            sm.Play("Cargando");    
+        }
         StartCoroutine(this.MakeTheLoad(levelToLoad));
     }
 

@@ -55,8 +55,11 @@ public class QuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        FindObjectOfType<SoundManager>().Change("Carrera");
-        //FindObjectOfType<SoundManager>().Stop("Lobby1");
+        SoundManager sm = FindObjectOfType<SoundManager>();
+        if (sm != null)
+        {
+            sm.Change("Carrera");    
+        }
         questionDAO = this.GetComponent<QuestionDAO>();
         questionDAO.ReadInfo();
         questionDAO.SaveQuestionJson();

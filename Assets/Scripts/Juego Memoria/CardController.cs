@@ -54,13 +54,18 @@ public class CardController : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<SoundManager>().Change("Cartas");
         cardDAO = this.GetComponent<CardDAO>();
         cardDAO.ReadInfo();       
         cardDAO.SaveQuestionJson();
         level = cardDAO.puntajesArray.puntajes[0].level;
         questions = Levels(level);
         levelGame.text = "NIVEL: " + level;
+        SoundManager sm = FindObjectOfType<SoundManager>();
+        if (sm != null)
+        {
+            sm.Change("Cartas");    
+        }
+        
         Create();
     }
 
