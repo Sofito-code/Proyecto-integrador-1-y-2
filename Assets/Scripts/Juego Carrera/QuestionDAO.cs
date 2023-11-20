@@ -18,12 +18,11 @@ public class QuestionDAO : MonoBehaviour
     public void SaveQuestionJson()
     {
         string json = @"{
-        ""questions"":
-            [
+            ""questions"":[
                 {
                     ""level"": 1,
                     ""id"": 101,
-                    ""question"": ""¿La acreditación es necesaria para que una institución siga funcionando?"",
+                    ""question"": ""¿La acreditación institucional es necesaria para que una IES siga funcionando?"",
                     ""answer1"": ""NO"",
                     ""answer2"": ""SI""
                 },
@@ -58,345 +57,261 @@ public class QuestionDAO : MonoBehaviour
                 {
                     ""level"": 1,
                     ""id"": 106,
-                    ""question"": ""¿La acreditación es válida nacional e internacional?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 107,
                     ""question"": ""¿El registro calificado es obligatorio?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
+                    ""id"": 107,
+                    ""question"": ""¿Los pares académicos deben visitar la institución educativa?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 1,
                     ""id"": 108,
-                    ""question"": ""¿El CNA es el Consejo Nombrado para Asesoría de Acreditación"",
+                    ""question"": ""¿El SNA es el Sistema Nacional de Acreditación?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
                     ""id"": 109,
-                    ""question"": ""¿Los pares académicos deben visitar la instutucion educativa?"",
+                    ""question"": ""¿Es importante para un estudiante, que su programa este acreditado?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
                     ""id"": 110,
-                    ""question"": ""¿el SNA es el Sistema Nacional de Acreditación?"",
+                    ""question"": ""¿La autoevaluación es un proceso de medición y reflexión sobre la calidad?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
                     ""id"": 111,
-                    ""question"": ""¿Es importante para un estudiante, que su programa este Acreditado?"",
+                    ""question"": ""¿la autoevaluación identifica fortalezas, debilidades y genera un plan de mejora y mantenimiento?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
                     ""id"": 112,
-                    ""question"": ""¿Debo estudiar en un programa sin registro calificado?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 113,
-                    ""question"": ""¿Pienso estudiar mi posgrado en el exterior, mi programa debe tener acreditación?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 114,
-                    ""question"": ""¿La autoevaluación es un proceso de medición y reflexión sobre la calidad?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 115,
-                    ""question"": ""¿la autoevaluación identifica fortalezas y debilidades?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 116,
                     ""question"": ""¿La autoevaluación es necesaria para la acreditación?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
-                    ""id"": 117,
-                    ""question"": ""¿En la autoevaluación se revisa los espacios físicos?"",
+                    ""id"": 113,
+                    ""question"": ""¿En la autoevaluación participan los estudiantes?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 1,
-                    ""id"": 118,
-                    ""question"": ""¿En la autoevaluación se revisa los espacios deportivos?"",
+                    ""id"": 114,
+                    ""question"": ""¿La autoevaluación genera un plan de mejoramiento?"",
                     ""answer1"": ""SI"",
                     ""answer2"": ""NO""
                 },
                 {
                     ""level"": 2,
                     ""id"": 201,
-                    ""question"": ""Condiciones iniciales"",
-                    ""answer1"": ""Conjunto de cualidades y requisitos que deben cumplir las instituciones para acreditarse"",
-                    ""answer2"": ""Evidencias iniciales del proceso de Autoevaluación""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 202,
-                    ""question"": ""Características de evaluación son, según el acuerdo 02 de 2020"",
-                    ""answer1"": ""factores y aspectos"",
-                    ""answer2"": ""Temas y preguntas""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 203,
-                    ""question"": ""Acuerdo base para la evaluación de programas presenciales"",
-                    ""answer1"": ""Acuerdo 02 de 2020"",
-                    ""answer2"": ""Acuerdo 05 de 2021""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 204,
-                    ""question"": ""Acuerdo base para la evaluación de programas virtuales"",
-                    ""answer1"": ""Acuerdo 02 de 2020"",
-                    ""answer2"": ""Acuerdo 06 de 2021""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 205,
-                    ""question"": ""Autoridad Nacional de acreditación"",
-                    ""answer1"": ""Consejo Nacional de Acreditación – CNA"",
-                    ""answer2"": ""Ministerio de Educación Nacional MINEDU""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 206,
-                    ""question"": ""Autoevaluación"",
-                    ""answer1"": ""Proceso que permiten a la institución la identificación de fortalezas y aspectos por mejorar"",
-                    ""answer2"": ""Proceso que orienta la implementación de planes de mejoramiento.""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 207,
-                    ""question"": ""Plan de mejoramiento"",
-                    ""answer1"": ""Conjunto de acciones organizadas para abordar las debilidades"",
-                    ""answer2"": ""conjunto de resultados de la evaluación""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 208,
-                    ""question"": ""¿Por qué acreditar la institución?"",
-                    ""answer1"": ""ser coherente con lo que es y se quiere ser"",
-                    ""answer2"": ""Para crecer""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 209,
-                    ""question"": ""¿la calidad en educación superior es?"",
-                    ""answer1"": ""nivel de correspondencia con lo esperado"",
-                    ""answer2"": ""goodwill de la institución""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 210,
-                    ""question"": ""La cultura en la que se potencia las óptimas cualidades"",
-                    ""answer1"": ""Acuerdo superior 430 de 2014"",
-                    ""answer2"": ""Política de calidad""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 211,
-                    ""question"": ""¿La calidad se entiende cómo?"",
-                    ""answer1"": ""Un camino"",
-                    ""answer2"": ""un conjunto de prácticas cotidianas.""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 212,
-                    ""question"": ""¿La acreditación?"",
-                    ""answer1"": ""Vigilancia del estado"",
-                    ""answer2"": ""Compromiso Institucional""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 213,
-                    ""question"": ""Institución acreditada por 10 años implica tener"",
-                    ""answer1"": ""60% o más de programas Acreditados"",
-                    ""answer2"": ""Autoevaluación Institucional.""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 214,
-                    ""question"": ""Para acreditar un programa se requiere tener"",
-                    ""answer1"": ""ocho años de continuidad de matrícula"",
-                    ""answer2"": ""maestría y doctorado asociado""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 215,
-                    ""question"": ""La autoevaluación implica revisar los altos niveles académicos"",
-                    ""answer1"": ""Investigativos"",
-                    ""answer2"": ""académicos""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 216,
-                    ""question"": ""La autoevaluación involucra"",
-                    ""answer1"": ""docentes"",
-                    ""answer2"": ""empresarios""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 217,
-                    ""question"": ""CNA entrega para la autoevaluación"",
-                    ""answer1"": ""guías"",
-                    ""answer2"": ""lineamientos""
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 218,
-                    ""question"": ""Como estudiante debo en la autoevaluación"",
-                    ""answer1"": ""Responder las encuestas"",
-                    ""answer2"": ""leer los documentos.""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 301,
-                    ""question"": ""¿En la autoevaluación se revisa los laboratorios?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 302,
-                    ""question"": ""¿En la autoevaluación se revisa los procesos administrativos?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 303,
-                    ""question"": ""¿En la autoevaluación se revisa los contenidos académicos de los cursos?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 304,
-                    ""question"": ""¿En la autoevaluación participan los estudiantes?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 305,
-                    ""question"": ""¿La autoevaluación genera un plan de mejoramiento?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 306,
-                    ""question"": ""EL MEN es un acreditador internacional"",
+                    ""question"": ""¿El MEN es un acreditador internacional?"",
                     ""answer1"": ""NO"",
                     ""answer2"": ""SI""
                 },
                 {
+                    ""level"": 2,
+                    ""id"": 202,
+                    ""question"": ""¿La autoevaluación es un proceso que termina cuando se solicita al CNA la visita de pares?"",
+                    ""answer1"": ""NO"",
+                    ""answer2"": ""SI""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 203,
+                    ""question"": ""¿En la autoevaluación de un programa se reflexiona sobre la relación con la industria?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 204,
+                    ""question"": ""En qué proceso se revisa los contenidos académicos de los cursos?"",
+                    ""answer1"": ""en la construcción del currículo"",
+                    ""answer2"": ""En el proceso de acreditación""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 205,
+                    ""question"": ""¿Pienso estudiar mi posgrado en el exterior, mi programa obligatoriamente debe tener acreditación?"",
+                    ""answer1"": ""NO"",
+                    ""answer2"": ""SI""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 206,
+                    ""question"": ""¿Cuál es el requisito mínimo de profesores de tiempo completo en una institución acreditada?"",
+                    ""answer1"": ""50%"",
+                    ""answer2"": ""30%""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 207,
+                    ""question"": ""¿Cuál es el requisito mínimo de graduados de programas de posgrado para la acreditación de una institución?"",
+                    ""answer1"": ""un mínimo de 30% de graduados de programas de posgrado."",
+                    ""answer2"": ""un mínimo de 50% de graduados de programas de posgrado.""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 208,
+                    ""question"": ""¿Cuál es el acuerdo base para la evaluación de programas presenciales?"",
+                    ""answer1"": ""Acuerdo 02 de 2020"",
+                    ""answer2"": ""Acuerdo superior 430 de 2014""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 209,
+                    ""question"": ""¿Cuál es el acuerdo base para la evaluación de programas virtuales?"",
+                    ""answer1"": ""Acuerdo 02 de 2020"",
+                    ""answer2"": ""Acuerdo superior 430 de 2014""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 210,
+                    ""question"": ""¿Cuál es autoridad Nacional de acreditación?"",
+                    ""answer1"": ""Consejo Nacional de Acreditación – CNA"",
+                    ""answer2"": ""El ministerio de Educación""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 211,
+                    ""question"": ""¿La cultura en la que se potencian las óptimas cualidades de un programa académico en la Universidad de Antioquia es?"",
+                    ""answer1"": ""Acuerdo superior 430 de 2014"",
+                    ""answer2"": ""Acuerdo 02 de 2020""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 212,
+                    ""question"": ""¿Cuál es el plazo para presentar el informe de autoevaluación al CNA?"",
+                    ""answer1"": ""6 meses antes de la visita de pares evaluadores."",
+                    ""answer2"": ""2 meses antes de la visita de pares evaluadores.""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 213,
+                    ""question"": ""¿Cuál es el papel de los egresados en el proceso de autoevaluación?"",
+                    ""answer1"": ""Proporcionar retroalimentación sobre la formación recibida."",
+                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior.""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 214,
+                    ""question"": ""¿Cómo mínimo qué porcentaje de programas Acreditados debe tener una IES que opte al periodo de diez años de acreditación?"",
+                    ""answer1"": ""60% o más programas Acreditados"",
+                    ""answer2"": ""30% o más programas acreditados""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 301,
+                    ""question"": ""¿Qué órgano de control es responsable de supervisar el cumplimiento de las políticas de acreditación en Colombia?"",
+                    ""answer1"": ""La Superintendencia de Educación."",
+                    ""answer2"": ""Consejo Nacional de Acreditación – CNA""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 302,
+                    ""question"": ""Pregunta: ¿Cuál es el rol de los estudiantes en el proceso de acreditación?"",
+                    ""answer1"": ""Participar en la autoevaluación y proporcionar retroalimentación."",
+                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior.""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 303,
+                    ""question"": ""¿Cuál es el período mínimo de acreditación que una institución puede obtener en Colombia? Tres años."",
+                    ""answer1"": ""Tres años."",
+                    ""answer2"": ""Cinco años.""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 304,
+                    ""question"": ""¿Cuántos años de continuidad de matrícula se deben tener para acreditar un programa?"",
+                    ""answer1"": ""Ocho años de continuidad de matrícula"",
+                    ""answer2"": ""Cinco años de continuidad de matrícula.""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 305,
+                    ""question"": ""¿Qué es la acreditación institucional?"",
+                    ""answer1"": ""un reconocimiento público que da el Estado a la calidad de una institución de educación superior"",
+                    ""answer2"": ""es el estándar que evalúa la calidad de los procesos administrativos en la institución""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 306,
+                    ""question"": ""¿Qué significa la sigla \""PEI\"" en el contexto de la acreditación institucional?"",
+                    ""answer1"": ""Proyecto Educativo Institucional."",
+                    ""answer2"": ""Informe de Pares evaluadores""
+                },
+                {
                     ""level"": 3,
                     ""id"": 307,
-                    ""question"": ""La autoevaluación debe ser"",
-                    ""answer1"": ""Permanente"",
-                    ""answer2"": ""Transparente""
+                    ""question"": ""¿Qué significa la sigla CNA?"",
+                    ""answer1"": ""Consejo Nacional de Acreditación"",
+                    ""answer2"": ""Centro Nacional de Aprendizaje.""
                 },
                 {
                     ""level"": 3,
                     ""id"": 308,
-                    ""question"": ""Los pares académicos"",
-                    ""answer1"": ""emiten juicio de calidad"",
-                    ""answer2"": ""son externos a la institución""
+                    ""question"": "": ¿Cuál es el plazo máximo para que una institución corrija las debilidades identificadas durante el proceso de acreditación?"",
+                    ""answer1"": ""Dos años, con la posibilidad de una extensión de un año."",
+                    ""answer2"": ""Tres años, con la posibilidad de una extensión de un año.""
                 },
                 {
                     ""level"": 3,
                     ""id"": 309,
-                    ""question"": ""La socialización y la capacitación las realiza"",
-                    ""answer1"": ""EL CNA"",
-                    ""answer2"": ""LA institución""
+                    ""question"": ""¿Cuál es el nivel más alto de acreditación que una institución puede obtener?"",
+                    ""answer1"": ""Acreditación de Alta Calidad."",
+                    ""answer2"": ""Acreditación Gubernamental de Excelencia Educativa""
                 },
                 {
                     ""level"": 3,
                     ""id"": 310,
-                    ""question"": ""En la autoevaluación de un programa se reflexiona sobre"",
-                    ""answer1"": ""la relación con la industria"",
-                    ""answer2"": ""el impacto en la sociedad""
+                    ""question"": ""¿Qué significa la sigla SNIES en el contexto de la educación superior en Colombia?"",
+                    ""answer1"": ""Sistema Nacional de Información de Educación Superior."",
+                    ""answer2"": ""Sistema Nacional de Integración y Evaluación de Servicios.""
                 },
                 {
                     ""level"": 3,
                     ""id"": 311,
-                    ""question"": ""¿Es importante para un estudiante, que su programa este Acreditado?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
+                    ""question"": ""¿Qué tipo de acreditación se otorga a una institución que no cumple con los estándares mínimos de calidad?"",
+                    ""answer1"": ""No se otorga la acreditación."",
+                    ""answer2"": ""Evaluación de Desvinculación por Estándares Insuficientes.""
                 },
                 {
                     ""level"": 3,
                     ""id"": 312,
-                    ""question"": ""¿Debo estudiar en un programa sin registro calificado?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
+                    ""question"": ""¿Cuál es el término utilizado para describir el proceso de revisión de la autoevaluación por parte del CNA?"",
+                    ""answer1"": ""Visita de Pares Evaluadores"",
+                    ""answer2"": ""Inspección Autónoma de Evaluadores Externos""
                 },
                 {
                     ""level"": 3,
                     ""id"": 313,
-                    ""question"": ""¿Pienso estudiar mi posgrado en el exterior mi programa debe tener acreditación?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
+                    ""question"": ""¿Cuál es el plazo máximo para que el CNA emita la resolución de acreditación después de recibir el \""Informe de Pares Evaluadores"",
+                    ""answer1"": ""30 días."",
+                    ""answer2"": ""60 días.""
                 },
                 {
                     ""level"": 3,
                     ""id"": 314,
-                    ""question"": ""¿La autoevaluación es un proceso de medición y reflexión sobre la calidad?"",
-                    ""answer1"": ""SI"",
-                    ""answer2"": ""NO""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 315,
-                    ""question"": ""La autoevaluación implica revisar los altos niveles académicos"",
-                    ""answer1"": ""Investigativos"",
-                    ""answer2"": ""académicos""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 316,
-                    ""question"": ""La autoevaluación involucra"",
-                    ""answer1"": ""docentes"",
-                    ""answer2"": ""empresarios""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 317,
-                    ""question"": ""CNA entrega para la autoevaluación"",
-                    ""answer1"": ""guías"",
-                    ""answer2"": ""lineamientos""
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 318,
-                    ""question"": ""Como estudiante debo en la autoevaluación"",
-                    ""answer1"": ""Responder las encuestas"",
-                    ""answer2"": ""leer los documentos.""
+                    ""question"": ""¿Un plan de mejoramiento es?"",
+                    ""answer1"": ""Conjunto de acciones organizadas para abordar las debilidades"",
+                    ""answer2"": ""Conjunto de tácticas para destacar debilidades identificadas.""
                 }
             ]
         }";
