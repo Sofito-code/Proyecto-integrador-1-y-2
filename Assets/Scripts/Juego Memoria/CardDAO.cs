@@ -25,212 +25,109 @@ public class CardDAO : MonoBehaviour
 
     public void SaveQuestionJson()
     {
-        string json =
-            @"{
-        ""questions"":
-            [
+        string json = @"{
+            ""questions"":[
                 {
                     ""level"": 1,
                     ""id"": 101,
-                    ""question"": ""¿Qué es la acreditación institucional?"",
-                    ""answer"": ""es un reconocimiento público que da el Estado a la calidad de una institución de educación superior"",
-                    ""topic"": 0
+                    ""question"": ""¿Por qué acreditar la institución?"",
+                    ""answer"": ""Ser coherente con lo que es y se quiere ser""
                 },
                 {
                     ""level"": 1,
                     ""id"": 102,
-                    ""question"": ""¿Qué se evalúa?"",
-                    ""answer"": ""Los programas, la infraestructura, los recursos, la organización el funcionamiento"",
-                    ""topic"": 1
+                    ""question"": ""¿La calidad en educación superior es?"",
+                    ""answer"": ""Nivel de correspondencia con lo esperado""
                 },
                 {
                     ""level"": 1,
                     ""id"": 103,
-                    ""question"": ""¿Qué significa calidad cuando hablamos de educación superior?"",
-                    ""answer"": ""el modo como ésta se presta las funciones de docencia, investigación y proyección social"",
-                    ""topic"": 2
+                    ""question"": ""¿Qué se evalúa en la acreditación?"",
+                    ""answer"": ""Los programas, la infraestructura, los recursos, la organización y el funcionamiento""
                 },
                 {
                     ""level"": 1,
                     ""id"": 104,
-                    ""question"": ""¿Es obligatorio el proceso de acreditación?"",
-                    ""answer"": ""La Ley 30 de 1992 le da a las instituciones de educación superior la libertad de acogerse al Sistema Nacional de Acreditación"",
-                    ""topic"": 3
+                    ""question"": ""¿Qué significa calidad cuando hablamos de educación superior?"",
+                    ""answer"": ""El modo como ésta se presta las funciones de docencia, investigación y proyección social""
                 },
                 {
                     ""level"": 1,
                     ""id"": 105,
-                    ""question"": ""¿Cuáles son los pasos del proceso para la acreditación?"",
-                    ""answer"": ""Realizar la autoevaluación, Visita de pares académicos, informe de autoevaluación y visita, Análisis y toma de decisión, acreditación o no"",
-                    ""topic"": 4
+                    ""question"": ""¿Es obligatorio el proceso de acreditación?"",
+                    ""answer"": ""No. La Ley 30 de 1992 les da a las instituciones de educación superior la libertad de acogerse al Sistema Nacional de Acreditación""
                 },
                 {
                     ""level"": 1,
                     ""id"": 106,
-                    ""question"": ""¿Quiénes participan en un proceso de acreditación?"",
-                    ""answer"": ""estudiantes, empleados, profesores, egresados El CNA y los pares por este designados"",
-                    ""topic"": 5
+                    ""question"": ""¿Cuáles son los pasos del proceso para la acreditación?"",
+                    ""answer"": ""Realizar la autoevaluación, Visita de pares académicos, informe de autoevaluación y visita, Análisis y toma de decisión, acreditación o no""
                 },
                 {
                     ""level"": 1,
                     ""id"": 107,
-                    ""question"": ""¿Quiénes realizan la evaluación para otorgar la acreditación?"",
-                    ""answer"": ""Los pares son personas de distintas universidades nacionales o internacionales, formados y con capacidad para ello"",
-                    ""topic"": 0
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 108,
-                    ""question"": ""Condiciones iniciales"",
-                    ""answer"": ""Conjunto de cualidades y requisitos que deben cumplir las instituciones para acreditarse"",
-                    ""topic"": 1
-                },
-                {
-                    ""level"": 1,
-                    ""id"": 109,
-                    ""question"": ""Características de evaluación son, según el acuerdo 02 de 2020"",
-                    ""answer"": ""factores y aspectos"",
-                    ""topic"": 2
+                    ""question"": ""¿Quiénes participan en un proceso de acreditación?"",
+                    ""answer"": ""Docentes, estudiantes, empleados, directivas, egresados, empleadores, pares académicos, CNA, MEN""
                 },
                 {
                     ""level"": 2,
                     ""id"": 201,
-                    ""question"": ""Acuerdo base para la evaluación de programas virtuales"",
-                    ""answer"": ""Acuerdo 02 de 2020"",
-                    ""topic"": 0
+                    ""question"": ""¿Quiénes realizan la evaluación para otorgar la acreditación?"",
+                    ""answer"": ""Los pares académicos enviados por el CNA quienes son personas de distintas universidades nacionales o internacionales, formados y con capacidad para ello""
                 },
                 {
                     ""level"": 2,
                     ""id"": 202,
-                    ""question"": ""Autoridad Nacional de acreditación"",
-                    ""answer"": ""Consejo Nacional de Acreditación – CNA"",
-                    ""topic"": 1
+                    ""question"": ""¿Cuál es el estándar que evalúa la pertinencia de los programas académicos en la acreditación?"",
+                    ""answer"": ""Pertinencia de la oferta académica.""
                 },
                 {
                     ""level"": 2,
                     ""id"": 203,
-                    ""question"": ""Autoevaluación"",
-                    ""answer"": ""Proceso que permiten a la institución la identificación de fortalezas y aspectos por mejorar"",
-                    ""topic"": 2
+                    ""question"": ""¿Cuál es el estándar que evalúa la gestión académica en la acreditación institucional?"",
+                    ""answer"": ""Gestión académica y curricular.""
                 },
                 {
                     ""level"": 2,
                     ""id"": 204,
-                    ""question"": ""Plan de mejoramiento"",
-                    ""answer"": ""Conjunto de acciones organizadas para abordar las debilidades"",
-                    ""topic"": 3
+                    ""question"": ""¿Cuál es el estándar que evalúa la calidad de los procesos administrativos en la acreditación institucional?"",
+                    ""answer"": ""Calidad de la gestión administrativa.""
                 },
                 {
                     ""level"": 2,
                     ""id"": 205,
-                    ""question"": ""¿Por qué acreditar la institución?"",
-                    ""answer"": ""ser coherente con lo que es y se quiere ser"",
-                    ""topic"": 4
+                    ""question"": ""¿Qué se evalúa en el estándar de Responsabilidad Fiscal en la acreditación?"",
+                    ""answer"": ""La responsabilidad fiscal y financiera de la institución.""
                 },
                 {
                     ""level"": 2,
                     ""id"": 206,
-                    ""question"": ""¿la calidad en educación superior, es?"",
-                    ""answer"": ""nivel de correspondencia con lo esperado"",
-                    ""topic"": 5
+                    ""question"": ""¿Cuál es el objetivo principal de la acreditación de alta calidad en Colombia?"",
+                    ""answer"": ""Fomentar la mejora continua de la calidad de la educación superior.""
                 },
                 {
                     ""level"": 2,
                     ""id"": 207,
-                    ""question"": ""La cultura en la que se potencia las óptimas cualidades"",
-                    ""answer"": ""Acuerdo superior 430 de 2014"",
-                    ""topic"": 0
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 208,
                     ""question"": ""¿La calidad se entiende cómo?"",
-                    ""answer"": ""Un camino"",
-                    ""topic"": 1
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 209,
-                    ""question"": ""¿La acreditación?"",
-                    ""answer"": ""Vigilancia del estado"",
-                    ""topic"": 2
-                },
-                {
-                    ""level"": 2,
-                    ""id"": 210,
-                    ""question"": ""Acuerdo base para la evaluación de programas presenciales"",
-                    ""answer"": ""Acuerdo 02 de 2020"",
-                    ""topic"": 3
+                    ""answer"": ""Conjunto de propiedades inherentes a una cosa que permite caracterizarla y valorarla con respecto a las restantes de su especie""
                 },
                 {
                     ""level"": 3,
                     ""id"": 301,
-                    ""question"": ""Institución acreditada por 10 años, implica tener"",
-                    ""answer"": ""60% o más de programas Acreditados"",
-                    ""topic"": 0
+                    ""question"": ""¿La acreditación es?"",
+                    ""answer"": ""El acto por el cual el Estado adopta y hace público el reconocimiento que efectúa una institución sobre la calidad de sus programas académicos""
                 },
                 {
                     ""level"": 3,
                     ""id"": 302,
-                    ""question"": ""Para acreditar un programa se requiere tener"",
-                    ""answer"": ""ocho años de continuidad de matrícula"",
-                    ""topic"": 1
+                    ""question"": ""¿Las características de evaluación son? según el acuerdo 02 de 2020"",
+                    ""answer"": ""factores y aspectos""
                 },
                 {
                     ""level"": 3,
                     ""id"": 303,
-                    ""question"": ""La autoevaluación implica revisar los altos niveles académicos"",
-                    ""answer"": ""Investigativos"",
-                    ""topic"": 2
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 304,
-                    ""question"": ""La autoevaluación involucra"",
-                    ""answer"": ""docentes"",
-                    ""topic"": 3
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 305,
-                    ""question"": ""CNA entrega para la autoevaluación"",
-                    ""answer"": ""guías"",
-                    ""topic"": 4
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 306,
-                    ""question"": ""Como estudiante debo en la autoevaluación"",
-                    ""answer"": ""Responder las encuestas"",
-                    ""topic"": 5
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 307,
-                    ""question"": ""La autoevaluación debe ser"",
-                    ""answer"": ""Permanente"",
-                    ""topic"": 0
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 308,
-                    ""question"": ""Los pares académicos"",
-                    ""answer"": ""emiten juicio de calidad"",
-                    ""topic"": 1
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 309,
-                    ""question"": ""La socialización y la capacitación las realiza"",
-                    ""answer"": ""EL CNA"",
-                    ""topic"": 2
-                },
-                {
-                    ""level"": 3,
-                    ""id"": 310,
-                    ""question"": ""En la autoevaluación de un programa se reflexiona sobre"",
-                    ""answer"": ""la relación con la industria"",
-                    ""topic"": 3
+                    ""question"": ""¿En la autoevaluación se revisa los contenidos académicos de los cursos?"",
+                    ""answer"": ""Más que contenidos académicos el proceso observa todo el currículo""
                 }
             ]
         }";
