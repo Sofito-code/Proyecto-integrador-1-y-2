@@ -118,6 +118,34 @@ public class QuestionDAO : MonoBehaviour
                     ""answer2"": ""NO""
                 },
                 {
+                    ""level"": 1,
+                    ""id"": 115,
+                    ""question"": ""¿El proyecto institucional es el instrumento que materializa y concreta la misión de la acreditación?"",
+                    ""answer1"": ""NO"",
+                    ""answer2"": ""SI""
+                },
+                {
+                    ""level"": 1,
+                    ""id"": 116,
+                    ""question"": ""¿En el proyecto institucional determina el plan de trabajo deLos pares evaluadores?"",
+                    ""answer1"": ""NO"",
+                    ""answer2"": ""SI""
+                },
+                {
+                    ""level"": 1,
+                    ""id"": 117,
+                    ""question"": ""¿Existen requisitos y condiciones iniciales para ingresar al Sistemas Nacional de Acreditación?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 1,
+                    ""id"": 118,
+                    ""question"": ""¿Es un requisito para ingresar al SNA, queLLa institución no haya sido objeto de sanciones?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
                     ""level"": 2,
                     ""id"": 201,
                     ""question"": ""¿El MEN es un acreditador internacional?"",
@@ -140,17 +168,17 @@ public class QuestionDAO : MonoBehaviour
                 },
                 {
                     ""level"": 2,
-                    ""id"": 204,
-                    ""question"": ""En qué proceso se revisa los contenidos académicos de los cursos?"",
-                    ""answer1"": ""en la construcción del currículo"",
-                    ""answer2"": ""En el proceso de acreditación""
-                },
-                {
-                    ""level"": 2,
                     ""id"": 205,
                     ""question"": ""¿Pienso estudiar mi posgrado en el exterior, mi programa obligatoriamente debe tener acreditación?"",
                     ""answer1"": ""NO"",
                     ""answer2"": ""SI""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 204,
+                    ""question"": ""¿En qué proceso se revisa los contenidos académicos de los cursos?"",
+                    ""answer1"": ""en la construcción del currículo"",
+                    ""answer2"": ""En el proceso de acreditación""
                 },
                 {
                     ""level"": 2,
@@ -163,8 +191,8 @@ public class QuestionDAO : MonoBehaviour
                     ""level"": 2,
                     ""id"": 207,
                     ""question"": ""¿Cuál es el requisito mínimo de graduados de programas de posgrado para la acreditación de una institución?"",
-                    ""answer1"": ""un mínimo de 30% de graduados de programas de posgrado."",
-                    ""answer2"": ""un mínimo de 50% de graduados de programas de posgrado.""
+                    ""answer1"": ""un mínimo de 30% de graduados de programas de posgrado"",
+                    ""answer2"": ""un mínimo de 50% de graduados de programas de posgrado""
                 },
                 {
                     ""level"": 2,
@@ -198,15 +226,15 @@ public class QuestionDAO : MonoBehaviour
                     ""level"": 2,
                     ""id"": 212,
                     ""question"": ""¿Cuál es el plazo para presentar el informe de autoevaluación al CNA?"",
-                    ""answer1"": ""6 meses antes de la visita de pares evaluadores."",
-                    ""answer2"": ""2 meses antes de la visita de pares evaluadores.""
+                    ""answer1"": ""6 meses antes de la visita de pares evaluadores"",
+                    ""answer2"": ""2 meses antes de la visita de pares evaluadores""
                 },
                 {
                     ""level"": 2,
                     ""id"": 213,
                     ""question"": ""¿Cuál es el papel de los egresados en el proceso de autoevaluación?"",
-                    ""answer1"": ""Proporcionar retroalimentación sobre la formación recibida."",
-                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior.""
+                    ""answer1"": ""Proporcionar retroalimentación sobre la formación recibida"",
+                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior""
                 },
                 {
                     ""level"": 2,
@@ -216,32 +244,60 @@ public class QuestionDAO : MonoBehaviour
                     ""answer2"": ""30% o más programas acreditados""
                 },
                 {
+                    ""level"": 2,
+                    ""id"": 215,
+                    ""question"": ""¿Es un requisito para ingresar al SNA, que el programa tenga porLo menos cuatro promociones de egresados?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 216,
+                    ""question"": ""¿Es un requisito para ingresar al SNA, que la instituciones tenga una misión claramente formulada?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 217,
+                    ""question"": ""¿Es un factor del proceso de acreditación la misión y el proyecto institucional?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 2,
+                    ""id"": 218,
+                    ""question"": ""¿Los estándares básicos y la acreditación de alta calidad apuntan al mismo objetivo?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
                     ""level"": 3,
                     ""id"": 301,
                     ""question"": ""¿Qué órgano de control es responsable de supervisar el cumplimiento de las políticas de acreditación en Colombia?"",
-                    ""answer1"": ""La Superintendencia de Educación."",
+                    ""answer1"": ""La Superintendencia de Educación"",
                     ""answer2"": ""Consejo Nacional de Acreditación – CNA""
                 },
                 {
                     ""level"": 3,
                     ""id"": 302,
-                    ""question"": ""Pregunta: ¿Cuál es el rol de los estudiantes en el proceso de acreditación?"",
-                    ""answer1"": ""Participar en la autoevaluación y proporcionar retroalimentación."",
-                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior.""
+                    ""question"": ""¿Cuál es el rol de los estudiantes en el proceso de acreditación?"",
+                    ""answer1"": ""Participar en la autoevaluación y proporcionar retroalimentación"",
+                    ""answer2"": ""Fomentar la mejora continua de la calidad de la educación superior""
                 },
                 {
                     ""level"": 3,
                     ""id"": 303,
-                    ""question"": ""¿Cuál es el período mínimo de acreditación que una institución puede obtener en Colombia? Tres años."",
-                    ""answer1"": ""Tres años."",
-                    ""answer2"": ""Cinco años.""
+                    ""question"": ""¿Cuál es el período mínimo de acreditación que una institución puede obtener en Colombia? Tres años"",
+                    ""answer1"": ""Tres años"",
+                    ""answer2"": ""Cinco años""
                 },
                 {
                     ""level"": 3,
                     ""id"": 304,
                     ""question"": ""¿Cuántos años de continuidad de matrícula se deben tener para acreditar un programa?"",
                     ""answer1"": ""Ocho años de continuidad de matrícula"",
-                    ""answer2"": ""Cinco años de continuidad de matrícula.""
+                    ""answer2"": ""Cinco años de continuidad de matrícula""
                 },
                 {
                     ""level"": 3,
@@ -253,8 +309,8 @@ public class QuestionDAO : MonoBehaviour
                 {
                     ""level"": 3,
                     ""id"": 306,
-                    ""question"": ""¿Qué significa la sigla \""PEI\"" en el contexto de la acreditación institucional?"",
-                    ""answer1"": ""Proyecto Educativo Institucional."",
+                    ""question"": ""¿Qué significa la sigla PEI en el contexto de la acreditación institucional?"",
+                    ""answer1"": ""Proyecto Educativo Institucional"",
                     ""answer2"": ""Informe de Pares evaluadores""
                 },
                 {
@@ -262,35 +318,35 @@ public class QuestionDAO : MonoBehaviour
                     ""id"": 307,
                     ""question"": ""¿Qué significa la sigla CNA?"",
                     ""answer1"": ""Consejo Nacional de Acreditación"",
-                    ""answer2"": ""Centro Nacional de Aprendizaje.""
+                    ""answer2"": ""Centro Nacional de Aprendizaje""
                 },
                 {
                     ""level"": 3,
                     ""id"": 308,
                     ""question"": "": ¿Cuál es el plazo máximo para que una institución corrija las debilidades identificadas durante el proceso de acreditación?"",
-                    ""answer1"": ""Dos años, con la posibilidad de una extensión de un año."",
-                    ""answer2"": ""Tres años, con la posibilidad de una extensión de un año.""
+                    ""answer1"": ""Dos años, con la posibilidad de una extensión de un año"",
+                    ""answer2"": ""Tres años, con la posibilidad de una extensión de un año""
                 },
                 {
                     ""level"": 3,
                     ""id"": 309,
                     ""question"": ""¿Cuál es el nivel más alto de acreditación que una institución puede obtener?"",
-                    ""answer1"": ""Acreditación de Alta Calidad."",
+                    ""answer1"": ""Acreditación de Alta Calidad"",
                     ""answer2"": ""Acreditación Gubernamental de Excelencia Educativa""
                 },
                 {
                     ""level"": 3,
                     ""id"": 310,
                     ""question"": ""¿Qué significa la sigla SNIES en el contexto de la educación superior en Colombia?"",
-                    ""answer1"": ""Sistema Nacional de Información de Educación Superior."",
-                    ""answer2"": ""Sistema Nacional de Integración y Evaluación de Servicios.""
+                    ""answer1"": ""Sistema Nacional de Información de Educación Superior"",
+                    ""answer2"": ""Sistema Nacional de Integración y Evaluación de Servicios""
                 },
                 {
                     ""level"": 3,
                     ""id"": 311,
                     ""question"": ""¿Qué tipo de acreditación se otorga a una institución que no cumple con los estándares mínimos de calidad?"",
-                    ""answer1"": ""No se otorga la acreditación."",
-                    ""answer2"": ""Evaluación de Desvinculación por Estándares Insuficientes.""
+                    ""answer1"": ""No se otorga la acreditación"",
+                    ""answer2"": ""Evaluación de Desvinculación por Estándares Insuficientes""
                 },
                 {
                     ""level"": 3,
@@ -302,16 +358,37 @@ public class QuestionDAO : MonoBehaviour
                 {
                     ""level"": 3,
                     ""id"": 313,
-                    ""question"": ""¿Cuál es el plazo máximo para que el CNA emita la resolución de acreditación después de recibir el \""Informe de Pares Evaluadores"",
-                    ""answer1"": ""30 días."",
-                    ""answer2"": ""60 días.""
+                    ""question"": ""¿Cuál es el plazo máximo para que el CNA emita la resolución de acreditación después de recibir el informe de pares evaluadores"",
+                    ""answer1"": ""30 días"",
+                    ""answer2"": ""60 días""
                 },
                 {
                     ""level"": 3,
                     ""id"": 314,
                     ""question"": ""¿Un plan de mejoramiento es?"",
                     ""answer1"": ""Conjunto de acciones organizadas para abordar las debilidades"",
-                    ""answer2"": ""Conjunto de tácticas para destacar debilidades identificadas.""
+                    ""answer2"": ""Conjunto de tácticas para destacar debilidades identificadas""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 315,
+                    ""question"": ""¿La calidad de la educación superior esLa distancia relativa entre el óptimo y el modo en que se presta un programa?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 316,
+                    ""question"": ""¿Es un objetivo deLa acreditación propiciar el mejoramiento deLa calidad de la educación superior?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
+                },
+                {
+                    ""level"": 3,
+                    ""id"": 317,
+                    ""question"": ""¿La evaluación de estándares conduce a registro calificado?"",
+                    ""answer1"": ""SI"",
+                    ""answer2"": ""NO""
                 }
             ]
         }";

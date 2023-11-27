@@ -64,8 +64,7 @@ public class CardController : MonoBehaviour
         if (sm != null)
         {
             sm.Change("Cartas");    
-        }
-        
+        }        
         Create();
     }
 

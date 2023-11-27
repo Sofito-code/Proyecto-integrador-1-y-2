@@ -1042,6 +1042,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1365817562}
+    - target: {fileID: 1644582771590562874, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 63.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644582771590562874, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91,
+        type: 2}
+    - target: {fileID: 1644582771590562874, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 63.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644582771590562874, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 1644582771590562874, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644582771590562876, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1644582772457473967, guid: 616fc8cd0fb10bb4a877702a252f300c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1156,6 +1187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Memoria
+      objectReference: {fileID: 0}
+    - target: {fileID: 1644582772626593321, guid: 616fc8cd0fb10bb4a877702a252f300c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 616fc8cd0fb10bb4a877702a252f300c, type: 3}
@@ -1802,6 +1838,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrera
       objectReference: {fileID: 0}
+    - target: {fileID: 6177073849169188091, guid: 926122986d55d284ea90f7c2d148063b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177073849514455415, guid: 926122986d55d284ea90f7c2d148063b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91,
+        type: 2}
+    - target: {fileID: 6177073849514455415, guid: 926122986d55d284ea90f7c2d148063b,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177073849514455415, guid: 926122986d55d284ea90f7c2d148063b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
     - target: {fileID: 6177073849767434661, guid: 926122986d55d284ea90f7c2d148063b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -734,6 +734,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9c975010d7ffea942829ec747d24e146,
         type: 3}
+    - target: {fileID: 965448078, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 965448078, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 965448078, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.20784315
+      objectReference: {fileID: 0}
     - target: {fileID: 1092739010, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -753,6 +765,18 @@ PrefabInstance:
     - target: {fileID: 1222045732, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 129
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424709240, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424709240, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424709240, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.20784315
       objectReference: {fileID: 0}
     - target: {fileID: 1885721202, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -815,6 +839,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CardController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361105034048753541, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361105034048753541, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.20784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361105034048753541, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.20784315
       objectReference: {fileID: 0}
     - target: {fileID: 4386136342595857640, guid: 084a6ad128714d34fb71fed9d23f4052,
         type: 3}
@@ -933,6 +972,52 @@ PrefabInstance:
       objectReference: {fileID: 1480353100}
     - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
         type: 3}
+      propertyPath: sprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ccc60d1794968d429e6d9f1ba01efba,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: c4dc372785270334f9133929686cb947,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6ce8878d0498b4040851d0a5679dffbb,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 11ba8c98790142247b4080c3dc23deac,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8089e362934c3054a9407c0ec1ef90e5,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30728c85465b8004c8f18e570139dc44,
+        type: 3}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386136342595857644, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
       propertyPath: pauseSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -962,6 +1047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664560651673348546, guid: 084a6ad128714d34fb71fed9d23f4052,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.6867676
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 084a6ad128714d34fb71fed9d23f4052, type: 3}

@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -112}
+  m_AnchoredPosition: {x: 0, y: -126}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &889386621
@@ -877,8 +877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000002861, y: 16}
-  m_SizeDelta: {x: 336.7569, y: 365}
+  m_AnchoredPosition: {x: -0.000002861, y: 16.818}
+  m_SizeDelta: {x: 336.7569, y: 383.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645301872
 MonoBehaviour:
@@ -902,7 +902,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 26
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -914,7 +914,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Dise\xF1adores \nCamila Ramirez\nRicky Ord\xF3\xF1ez\nJohan Sebasti\xE1n
-    G\xF3mez \n\nProgramadores\nSofia Vanegas\nDaniel Tabares"
+    G\xF3mez \n\nProgramadores\nSofia Vanegas\nDaniel Tabares\n\nGuion\nMiguel Urue\xF1a\nDiana
+    Margot L\xF3pez\n\nM\xFAsica\nSantiago Ramirez"
 --- !u!222 &1645301873
 CanvasRenderer:
   m_ObjectHideFlags: 0
