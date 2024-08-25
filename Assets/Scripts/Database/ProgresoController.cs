@@ -7,10 +7,10 @@ using UnityEngine.UI;
 using TMPro;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class Progreso : MonoBehaviour
+public class ProgresoController : MonoBehaviour
 {
 
-    public static Progreso instance;
+    public static ProgresoController instance;
     public TextMeshProUGUI puntajeMemoria;
     public TextMeshProUGUI puntajeRunner;
     public TextMeshProUGUI levelMemoria;
