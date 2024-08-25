@@ -26,8 +26,8 @@ public class Progreso : MonoBehaviour
         ReadPuntaje();
         puntajeMemoria.text = "Puntaje Acumulado: " + puntajesArray.puntajes[0].score;
         levelMemoria.text = "Nivel: " + puntajesArray.puntajes[0].level;
-        puntajeRunner.text = "Puntaje Acumulado: " + puntajesArray.puntajes[1].score;
-        levelRunner.text = "Nivel: " + puntajesArray.puntajes[1].level;
+        /* puntajeRunner.text = "Puntaje Acumulado: " + puntajesArray.puntajes[1].score;
+        levelRunner.text = "Nivel: " + puntajesArray.puntajes[1].level; */
     }
 
     private void ReadPuntaje()
@@ -38,7 +38,7 @@ public class Progreso : MonoBehaviour
             FileStream fs = new FileStream(path, FileMode.Open);
             BinaryFormatter bf = new BinaryFormatter();
             ModelPuntajes[] puntajes = (ModelPuntajes[]) bf.Deserialize(fs);
-            puntajesArray.puntajes = puntajes; 
+            puntajesArray.puntajes = puntajes;
             fs.Close();
         }
         else

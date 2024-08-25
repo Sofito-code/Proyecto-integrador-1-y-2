@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f52f52deded602b409ee4097e5d737ef, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.7909095, g: 0.7713153, b: 0.8975454, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,7 +355,7 @@ MonoBehaviour:
     en la obtenci\xF3n de la acreditaci\xF3n de alta calidad. \U0001F929\n\n\nC#DERS
     present\xF3\n\nMISION 02 - Camino a la calidad\n\nDesarrollado por:\nSof\xEDa
     Vanegas\nMaria Camila Ram\xEDrez\nDaniel Tabares\n\nEspecial agradecimiento a:\nDiana
-    Margot Lopez\n\nPara: \nProyecto Integrador 1\n\nIngenier\xEDa de Sistemas\nMedell\xEDn\nUdeA
+    Margot Lopez\n\nPara: \nProyecto Integrador 1 y 2\n\nIngenier\xEDa de Sistemas\nMedell\xEDn\nUdeA
     - 2023"
 --- !u!222 &402936438
 CanvasRenderer:

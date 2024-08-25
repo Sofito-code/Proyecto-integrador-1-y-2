@@ -8,40 +8,42 @@ public class MenuControl : MonoBehaviour
 
     public void buttonBack()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);//Scene Menu
     }
 
     public void buttonStart()
     {
-        LevelLoader.LoadLevel(1);
+        LevelLoader.LoadLevel(1);//Scene Biblioteca
     }
 
     public void buttonInstructions()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(3);//Scene Instrucciones
     }
 
     public void buttonCredits()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);//Scene Credits
     }
 
     public void buttonProgress()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(6);//Scene Progress
     }
+
     public void buttonOptions()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(7);//Scene Options
     }
+
     public void buttonGalery()
     {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(8);//Scene Galery
     }
 
     public void GoToFinalScene()
     {
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene(9);//Scene FinalScene
     }
 
     public void buttonExit()

@@ -31,7 +31,7 @@ public class CardController : MonoBehaviour
     public GameObject gameInfoInf;
     public GameObject cardsParentObject;
     public GameObject instructions;
-    public float limit = 900f;    
+    public float limit = 900f;
 
     private List<CardInfo> questions;
     private List<GameObject> cards = new List<GameObject>();
@@ -46,7 +46,7 @@ public class CardController : MonoBehaviour
     public bool isAvailable { set; get; } = true;
     private bool playing = false;
     private float temp = 0f;
-    private string textTime = "00:00";    
+    private string textTime = "00:00";
 
 
     //Card DAO for accessing to Data by JSON file
@@ -55,7 +55,7 @@ public class CardController : MonoBehaviour
     void Start()
     {
         cardDAO = this.GetComponent<CardDAO>();
-        cardDAO.ReadInfo();       
+        cardDAO.ReadInfo();
         cardDAO.SaveQuestionJson();
         level = cardDAO.puntajesArray.puntajes[0].level;
         questions = Levels(level);
@@ -63,8 +63,8 @@ public class CardController : MonoBehaviour
         SoundManager sm = FindObjectOfType<SoundManager>();
         if (sm != null)
         {
-            sm.Change("Cartas");    
-        }        
+            sm.Change("Cartas");
+        }
         Create();
     }
 
@@ -75,7 +75,7 @@ public class CardController : MonoBehaviour
             if(temp>= limit || remainingClicks == 0 || successesCards == 7){
                 GameOver();
             }
-            UploadTimeUI();           
+            UploadTimeUI();
         }
     }
 
@@ -97,8 +97,9 @@ public class CardController : MonoBehaviour
         cards.Clear();
         int children = cardsParent.childCount;
         for (int i = 0; i < children; ++i)
-            Destroy(cardsParent.GetChild(i).gameObject);       
+            Destroy(cardsParent.GetChild(i).gameObject);
         Start();
+        gameOver.SetActive(false);
         instructions.SetActive(true);
         gameInfoInf.SetActive(false);
         gameInfoSup.SetActive(false);
@@ -132,10 +133,9 @@ public class CardController : MonoBehaviour
         gameInfoInf.transform.GetChild(5).gameObject.GetComponent<Button>().image.sprite= pauseSprites[1];
         pause.SetActive(true);
         Time.timeScale = 0f;
-        gameisPaused = true;         
+        gameisPaused = true;
         playing = false;
     }
-    
 
     public void StartGame()
     {
@@ -148,11 +148,11 @@ public class CardController : MonoBehaviour
 
     public void UploadTimeUI(){
         temp += Time.deltaTime;
-        int hor, min, seg; 
+        int hor, min, seg;
         hor = (int)(temp / 3600);
         min = (int)((temp - hor * 3600) / 60);
         seg = (int)(temp - (hor * 3600 + min * 60));
-        
+
         if(min < 10 && seg < 10){
             textTime = "0" + min + ":0" + seg;
         }else if(min < 10 && seg > 9){
@@ -167,7 +167,6 @@ public class CardController : MonoBehaviour
 
     public void Create()
     {
-        
         int x = 210;
         for (int i = 0; i < cols; i++)
         {
@@ -180,7 +179,6 @@ public class CardController : MonoBehaviour
                     Quaternion.Euler(new Vector3(0, 0, 0))
                 );
                 cards.Add(cardTemp);
-                
                 cardTemp.GetComponent<Card>().originalPos = new Vector3(x, y, 0);
                 cardTemp.transform.SetParent(cardsParent);
                 y -= 400;
@@ -275,7 +273,7 @@ public class CardController : MonoBehaviour
         int pieces = (scorePlayer + bonusScorePlayer) / 135;
         cardDAO.jugador.available_pieces += pieces;
         cardDAO.SaveJugador();
-        gameOver.SetActive(true); 
+        gameOver.SetActive(true);
         playing = false;
     }
 
@@ -283,17 +281,17 @@ public class CardController : MonoBehaviour
         LevelLoader.LoadLevel(1);
     }
 
-    public void Shuffle<CardInfo>(List<CardInfo> list)  
-    {  
+    public void Shuffle<CardInfo>(List<CardInfo> list)
+    {
         System.Random rng = new System.Random();
-        int n = list.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = rng.Next(n + 1);  
-            CardInfo value = list[k];  
-            list[k] = list[n];  
-            list[n] = value;  
-        }  
+        int n = list.Count;
+        while (n > 1) {
+            n--;
+            int k = rng.Next(n + 1);
+            CardInfo value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 
     private List<CardInfo> Levels(int level)
@@ -312,7 +310,7 @@ public class CardController : MonoBehaviour
     }
 
     private CardInfo[] UploadData()
-    {         
+    {
         CardInfo[] cardsQuestions = cardDAO.ReadQuestionJson();
         return cardsQuestions;
     }
