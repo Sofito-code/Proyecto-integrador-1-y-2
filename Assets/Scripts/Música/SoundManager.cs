@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            Debug.Log("Destroy");
+            Debug.Log("Destroy SM");
         }
         
         foreach (Sound s in sounds)
@@ -50,7 +50,6 @@ public class SoundManager : MonoBehaviour
             return;
         }
         if (name != "Cargando"){
-            Debug.Log($"Cambiando {song} por {name}");
             song = name;
         }            
         s.source.Play();
